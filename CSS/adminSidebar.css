@@ -1,0 +1,76 @@
+*{
+    font-family: inter;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    color: #333;
+    transition: left 0.3s ease;
+    z-index: 1000; /* Ensure the sidebar is above other content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to the top and bottom */
+  }
+  
+  .sidebar-content {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px 0;
+  }
+  
+  .sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 10px; /* Space between logo and text */
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .sidebar-icon {
+    width: 20px; /* Adjust size of logo/icon */
+    height: 20px;
+    object-fit: contain;
+  }
+  
+  .create-program {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .create-program button {
+    background-color: #009963; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 11px;
+    cursor: pointer;
+    width: 80%; /* Make the button a bit smaller than the sidebar */
+    margin: 0 auto; /* Center the button */
+  }
+  
+  .create-program button:hover {
+    background-color: #009963; /* Darker green on hover */
+  }
+  
+  body {
+    margin-left: 250px; /* To adjust the main content area */
+    transition: margin-left 0.3s ease;
+  }
+  
