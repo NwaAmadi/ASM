@@ -7,6 +7,7 @@ const AdminSidebar = () => {
       <div className="sidebar">
         <div className="sidebar-content">
           <ul>
+            <h4>Admin</h4>
             <li>
               <img className="sidebar-icon" src="../Assets/Home.svg" alt="Home" />
               <a href="#home">Dashboard</a>

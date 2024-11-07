@@ -1,14 +1,10 @@
-import './App.css'
-import AdminSidebar from '../SubComponents/adminSidebar';
+import '../CSS/App.css';
+import Home from '../Maincomponents/Home';
 
 function App() {
   return (
-    <div className="App">
-      <AdminSidebar />
-      <div className="content">
-        <h1>Welcome to My App</h1>
-        <p>This is the main content area.</p>
-      </div>
+    <div className="Mainbody">
+      <Home/>
     </div>
   );
 }

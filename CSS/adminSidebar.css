@@ -10,10 +10,11 @@
     background-color: white;
     color: #333;
     transition: left 0.3s ease;
-    z-index: 1000; /* Ensure the sidebar is above other content */
+    z-index: 1000; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes content to the top and bottom */
+    justify-content: space-between; 
+    overflow: hidden;
   }
   
   .sidebar-content {
@@ -30,20 +31,35 @@
   .sidebar ul li {
     display: flex;
     align-items: center;
-    margin: 15px 0;
+    margin: 10px 0;
     padding: 10px 0;
   }
   
   .sidebar ul li a {
     color: #333;
     text-decoration: none;
-    margin-left: 10px; /* Space between logo and text */
-    font-size: 16px;
+    margin-left: 10px; 
+    font-size: 13px;
     font-weight: bold;
+  }
+
+  .sidebar ul li:hover {
+    background-color: #F5F0E5;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+  }
+
+  .sidebar ul h4{
+    color: #333;
+    text-align: left;
+    margin: 0;
+    padding: 0;
   }
   
   .sidebar-icon {
-    width: 20px; /* Adjust size of logo/icon */
+    width: 20px; 
     height: 20px;
     object-fit: contain;
   }
@@ -58,19 +74,19 @@
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     font-size: 11px;
     cursor: pointer;
-    width: 80%; /* Make the button a bit smaller than the sidebar */
-    margin: 0 auto; /* Center the button */
+    width: 80%; 
+    
   }
   
   .create-program button:hover {
-    background-color: #009963; /* Darker green on hover */
+    background-color: #009963; 
   }
   
   body {
-    margin-left: 250px; /* To adjust the main content area */
+    margin-left: 250px;
     transition: margin-left 0.3s ease;
   }
   
