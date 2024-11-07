@@ -10,3 +10,21 @@
     display: flex;
     justify-content: space-between;
 }
+.create-program-button{
+    height: 30px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    background-color: #F5F0E5;
+    border: none;
+    border-radius: 12px;
+    font-size: 10.5px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.create-program-button:hover{
+    background-color: #009963;
+    color: white;
+}
