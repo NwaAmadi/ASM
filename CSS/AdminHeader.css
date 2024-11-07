@@ -1,11 +1,9 @@
 .content{
     font-weight: 32px;
-    margin-left: 20px;
+    
     color: #333;
-    display: flex;
-    justify-content: space-between; /* Space between the text and button */
-    align-items: center;
-    padding: 20px;
+  
+    justify-content: space-between;
 }
 
 .uppersection{

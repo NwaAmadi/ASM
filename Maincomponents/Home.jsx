@@ -4,10 +4,11 @@ import AdminHeader from "../SubComponents/AdminHeader";
 
 function Home() {
     return(
-        <div className="Home">
-            <AdminSidebar />
-            <AdminHeader />
-        
+        <div className="Body">
+            <div className="Home">
+                <AdminHeader />
+                <AdminSidebar />
+            </div>
         </div>
     );
 }
