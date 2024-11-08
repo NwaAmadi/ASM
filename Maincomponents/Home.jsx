@@ -1,6 +1,7 @@
 import AdminSidebar from "../SubComponents/adminSidebar";
 import '../CSS/home.css'
 import AdminHeader from "../SubComponents/AdminHeader";
+import SearchBar from "../SubComponents/SearchBar";
 
 function Home() {
     return(
@@ -8,6 +9,7 @@ function Home() {
             <div className="Home">
                 <AdminHeader />
                 <AdminSidebar />
+                <SearchBar />
             </div>
         </div>
     );
