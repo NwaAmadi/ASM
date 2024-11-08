@@ -5,10 +5,10 @@ function AdminHeader() {
         <div>
             <div className="content">
                 <div className='uppersection'>
-                        <h2>Your Programs</h2>
+                        <h2>Conference Programs</h2>
                     
                         <button className='create-program-button'>
-                            Create a new Program
+                            + | New Program
                         </button>
                 </div>
             </div>

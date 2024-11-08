@@ -1,13 +1,17 @@
 import "../CSS/adminSidebar.css";
+import Logo from "./Logo";
 
 const AdminSidebar = () => {
   return (
     <div>
-      {/* Sidebar component */}
+      
       <div className="sidebar">
         <div className="sidebar-content">
           <ul>
-            <h4>Admin</h4>
+            <div className="Top">
+              <Logo />
+              <h4>Admin</h4>
+            </div>
             <li>
               <img className="sidebar-icon" src="../Assets/Home.svg" alt="Home" />
               <a href="#home">Dashboard</a>
@@ -32,7 +36,7 @@ const AdminSidebar = () => {
         </div>
        
         <div className="create-program">
-          <button>Create New Program</button>
+          <button>Create a New Program</button>
         </div>
       </div>
     </div>
