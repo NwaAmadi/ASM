@@ -17,13 +17,17 @@ function AdminHeader() {
                 <div className='uppersection'>
                     <h2>Conference Programs</h2>
 
-                    {/* Button to toggle the form dropdown */}
-                    <button
-                        className='create-program-button'
-                        onClick={handleToggle}
-                    >
-                        + | New Program
-                    </button>
+                    <div className='button-holder'>
+                        {/* Button to toggle the form dropdown */}
+                        <button
+                            className='create-program-button'
+                            onClick={handleToggle}
+                        >
+                            + | New Program
+                        </button>
+                        
+                        <button className='delete-program'> - | Delete Program</button>
+                    </div>
                 </div>
                 
                 {/* Show the form if isOpen is true */}

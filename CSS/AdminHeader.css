@@ -16,3 +16,28 @@
     color: #1C170D;
     
 }
+.button-holder{
+    display: flex;
+}
+.delete-program{
+    background-color: #F5F0E5; 
+    color: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius: 12px;
+    font-size: 11px;
+    cursor: pointer;
+    height: 30px;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 10px;
+    border: 1px solid #911118;
+ 
+  }
+  .delete-program:hover{
+    background-color: #bd0009;
+    color: white;
+    font-weight: 600;
+  }

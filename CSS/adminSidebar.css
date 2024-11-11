@@ -77,13 +77,14 @@
     border-radius: 12px;
     font-size: 11px;
     cursor: pointer;
-    width: 80%; 
-    
+    width: 80%;
   }
   
   .create-program button:hover {
-    background-color: #009963; 
+    background-color: #009963;
+    font-weight: 600;
   }
+
   
   body {
     margin-left: 250px;
@@ -92,4 +93,3 @@
   .Top{
     display: flex;
   }
-  
