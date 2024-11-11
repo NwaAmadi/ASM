@@ -1,7 +1,8 @@
-import '../CSS/ProgramForm.css'
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types'; 
+import '../CSS/ProgramForm.css';
 
-const ProgramForm = () => {
+const ProgramForm = ({ closeForm }) => {
   const [formData, setFormData] = useState({
     title: '',
     startDate: '',
@@ -13,49 +14,63 @@ const ProgramForm = () => {
     speakers: '',
   });
 
-  // Handle input changes
+  const formRef = useRef(null);
+
+  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        closeForm(); 
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [closeForm]);
+
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form behavior
   
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    
     try {
       const response = await fetch('http://127.0.0.1:5000/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData), // Send form data as JSON
+        body: JSON.stringify(formData), 
       });
   
       const result = await response.json();
   
       if (response.ok) {
         alert('Form submitted successfully:', result);
-        // Optionally, reset form state or close form
+        closeForm(); 
       } else {
         alert('Submission failed:', result);
       }
     } catch (error) {
-      alert.error('Error submitting form:', error);
+      alert('Error submitting form:', error);
     }
   };
-  
 
   return (
-    <div className="dropdown-content">
+    <div className="dropdown-content" ref={formRef}>
       <form onSubmit={handleSubmit}>
         <p>Add Program</p>
         <div className="form-group">
-          
           <input
             type="text"
             name="title"
-            placeholder='Program Title'
+            placeholder="Program Title"
             value={formData.title}
             onChange={handleChange}
             required
@@ -66,7 +81,6 @@ const ProgramForm = () => {
           <label>Start Date</label>
           <input
             type="date"
-            placeholder='Start Date'
             name="startDate"
             value={formData.startDate}
             onChange={handleChange}
@@ -75,10 +89,9 @@ const ProgramForm = () => {
         </div>
 
         <div className="form-group">
-          <label>End Date:</label>
+          <label>End Date</label>
           <input
             type="date"
-            placeholder='End Date'
             name="endDate"
             value={formData.endDate}
             onChange={handleChange}
@@ -87,7 +100,7 @@ const ProgramForm = () => {
         </div>
 
         <div className="form-group">
-          <label>Start Time:</label>
+          <label>Start Time</label>
           <input
             type="time"
             name="startTime"
@@ -98,7 +111,7 @@ const ProgramForm = () => {
         </div>
 
         <div className="form-group">
-          <label>End Time:</label>
+          <label>End Time</label>
           <input
             type="time"
             name="endTime"
@@ -109,7 +122,7 @@ const ProgramForm = () => {
         </div>
 
         <div className="form-group">
-          <label>Priority:</label>
+          <label>Priority</label>
           <select
             name="priority"
             value={formData.priority}
@@ -124,7 +137,7 @@ const ProgramForm = () => {
         </div>
 
         <div className="form-group">
-          <label>About:</label>
+          <label>About</label>
           <textarea
             name="about"
             value={formData.about}
@@ -134,7 +147,7 @@ const ProgramForm = () => {
         </div>
 
         <div className="form-group">
-          <label>Speakers:</label>
+          <label>Speakers</label>
           <input
             type="text"
             name="speakers"
@@ -150,6 +163,11 @@ const ProgramForm = () => {
       </form>
     </div>
   );
+};
+
+
+ProgramForm.propTypes = {
+  closeForm: PropTypes.func.isRequired,
 };
 
 export default ProgramForm;

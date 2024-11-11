@@ -2,13 +2,15 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
+# Initialize the Flask app
 app = Flask(__name__)
 
-app = Flask(__name__)
+# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///programs.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+# Define the Program model
 class Program(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -20,19 +22,21 @@ class Program(db.Model):
     about = db.Column(db.Text, nullable=True)
     speakers = db.Column(db.String(200), nullable=True)
 
-
+# Route to get all programs
 @app.route('/api/programs', methods=['GET'])
 def get_programs():
     programs = Program.query.all()
     programs_list = [
         {
+            'id': program.id, 
             'title': program.title,
             'dates': f"{program.start_date} - {program.end_date}",
-            'duration': f"{program.end_time} - {program.start_time}"
+            'duration': f"{program.start_time} - {program.end_time}"
         }
         for program in programs
     ]
     return jsonify(programs_list), 200
+
 
 @app.route('/api/submit', methods=['POST'])
 def submit_program():
@@ -58,21 +62,27 @@ def submit_program():
     )
     try:
         db.session.add(new_program)
-        db.session.commit()  # Commit the transaction to save the data
+        db.session.commit() 
         return jsonify({"message": "Program submitted successfully!"}), 201
     except Exception as e:
         return jsonify({"message": "Error saving data", "error": str(e)}), 500
 
-def delete_program(id):
-    program = Program.query.get(id)
-    if not program:
-        return jsonify({'error': 'Program not found'}), 404
 
-    db.session.delete(program)
-    db.session.commit()
-    return jsonify({'message': 'Program deleted successfully'}), 200
+@app.route('/api/programs/<int:id>', methods=['DELETE'])
+def delete_program(id):
+    program_to_delete = Program.query.get(id)
+    if not program_to_delete:
+        return jsonify({"error": "Program not found"}), 404
+
+    try:
+        db.session.delete(program_to_delete)
+        db.session.commit()
+        return jsonify({"message": "Program deleted successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": "Error deleting program", "details": str(e)}), 500
 
 CORS(app)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -38,7 +38,7 @@ function Home() {
                 <AdminSidebar />
                 <SearchBar />
                 
-                {/* Display loading state, error message, or program cards */}
+                
                 {loading && <p>Loading programs...</p>}
                 {error && <p>Error loading programs: {error.message}</p>}
                 {!loading && programs.length === 0 && <p>No programs available</p>}
@@ -50,6 +50,7 @@ function Home() {
                             title={program.title}
                             dates={program.dates}
                             duration={program.duration}
+                            
                         />
                     ))
                 )}

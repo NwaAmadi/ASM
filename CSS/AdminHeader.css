@@ -19,7 +19,7 @@
 .button-holder{
     display: flex;
 }
-.delete-program{
+.delete-program-button{
     background-color: #F5F0E5; 
     color: auto;
     padding-left: 10px;
@@ -28,7 +28,7 @@
     border-radius: 12px;
     font-size: 11px;
     cursor: pointer;
-    height: 30px;
+    height: 33px;
     align-self: center;
     justify-content: center;
     text-align: center;
@@ -36,8 +36,90 @@
    
  
   }
-  .delete-program:hover{
+  .delete-program-button:hover{
     background-color: #bd0009;
     color: white;
     font-weight: 600;
   }
+  .delete-dropdown {
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 400px;
+    height: auto; 
+    border: 0.5px solid #bd0009;
+  }
+.delete-dropdown h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.delete-dropdown select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.confirm-delete-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-delete-button:hover {
+    background-color: #c9302c;
+}
+
+
+.delete-dropdown select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.delete-dropdown select:focus {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+    outline: none;
+}
+
+.delete-dropdown option {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+}
+
+.delete-dropdown option:hover {
+    background-color: #e9ecef;
+}
+
+.delete-dropdown option:checked {
+    
+    margin: 5px;
+    border: 2px solid #007bff;
+}
+
