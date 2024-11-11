@@ -20,30 +20,42 @@ const ProgramForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form data:', formData);
-    alert('Form submitted successfully!');
-    setFormData({
-      title: '',
-      startDate: '',
-      endDate: '',
-      startTime: '',
-      endTime: '',
-      priority: '',
-      about: '',
-      speakers: '',
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form behavior
+  
+    try {
+      const response = await fetch('http://127.0.0.1:5000/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData), // Send form data as JSON
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert('Form submitted successfully:', result);
+        // Optionally, reset form state or close form
+      } else {
+        alert('Submission failed:', result);
+      }
+    } catch (error) {
+      alert.error('Error submitting form:', error);
+    }
   };
+  
 
   return (
     <div className="dropdown-content">
       <form onSubmit={handleSubmit}>
+        <p>Add Program</p>
         <div className="form-group">
-          <label>Program Title:</label>
+          
           <input
             type="text"
             name="title"
+            placeholder='Program Title'
             value={formData.title}
             onChange={handleChange}
             required
@@ -51,9 +63,10 @@ const ProgramForm = () => {
         </div>
 
         <div className="form-group">
-          <label>Start Date:</label>
+          <label>Start Date</label>
           <input
             type="date"
+            placeholder='Start Date'
             name="startDate"
             value={formData.startDate}
             onChange={handleChange}
@@ -65,6 +78,7 @@ const ProgramForm = () => {
           <label>End Date:</label>
           <input
             type="date"
+            placeholder='End Date'
             name="endDate"
             value={formData.endDate}
             onChange={handleChange}
@@ -103,7 +117,7 @@ const ProgramForm = () => {
             required
           >
             <option value="">Select Priority</option>
-            <option value="High">High</option>
+            <option value="High">Mandatory</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
           </select>
