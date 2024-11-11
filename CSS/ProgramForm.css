@@ -1,0 +1,62 @@
+*{
+    font-family: inter;
+}
+/* Style for the dropdown button */
+.create-program-button{
+    height: 30px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    background-color: #F5F0E5;
+    border: none;
+    border-radius: 12px;
+    font-size: 10.5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-right: 20px;
+    padding: 16px;
+}
+.create-program-button:hover{
+    background-color: #009963;
+    color: white;
+}
+  
+  /* Style for the dropdown content */
+  .dropdown-content {
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Form styling */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

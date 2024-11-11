@@ -1,7 +1,17 @@
 import "../CSS/adminSidebar.css";
 import Logo from "./Logo";
+import { useState } from "react";
+import ProgramForm from './ProgramForm';
 
 const AdminSidebar = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+    // Function to toggle dropdown
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+    };
+
   return (
     <div>
       
@@ -36,9 +46,12 @@ const AdminSidebar = () => {
         </div>
        
         <div className="create-program">
-          <button>Create a New Program</button>
+          <button onClick={handleToggle}>Create a New Program</button>
         </div>
       </div>
+
+      {isOpen && <ProgramForm />}
+      
     </div>
   );
 };

@@ -1,26 +1,26 @@
-import PropTypes from 'prop-types'; // Importing PropTypes
+import PropTypes from 'prop-types'; 
 
 const Footer = ({ text }) => {
   return (
     <footer style={footerStyle}>
-      {/* Copyright Logo and Text */}
-      <span style={iconStyle}>&#169;</span> {/* Copyright symbol */}
+      
+      <span style={iconStyle}>&#169;</span>
       <p style={textStyle}>{text}</p>
     </footer>
   );
 };
 
-// Setting default props
+
 Footer.defaultProps = {
   text: "Aba South Conference of Seventh-day Adventist Church",
 };
 
-// Prop validation
+
 Footer.propTypes = {
   text: PropTypes.string, 
 };
 
-// Styles
+
 const footerStyle = {
   display: 'flex',
   alignItems: 'center',  

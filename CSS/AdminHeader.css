@@ -16,23 +16,3 @@
     color: #1C170D;
     
 }
-.create-program-button{
-    height: 30px;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    align-self: center;
-    display: flex;
-    background-color: #F5F0E5;
-    border: none;
-    border-radius: 12px;
-    font-size: 10.5px;
-    padding-left: 7px;
-    padding-right: 7px;
-    margin-right: 20px;
-    padding: 16px;
-}
-.create-program-button:hover{
-    background-color: #009963;
-    color: white;
-}
