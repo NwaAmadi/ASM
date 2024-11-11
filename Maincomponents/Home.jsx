@@ -10,16 +10,16 @@ function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetch programs from the backend API
+   
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/programs'); // Correct backend URL
+                const response = await fetch('http://127.0.0.1:5000/api/programs');
                 if (!response.ok) {
                     throw new Error('Failed to fetch programs');
                 }
                 const data = await response.json();
-                setPrograms(data);  // Set the fetched programs to the state
+                setPrograms(data); 
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching programs:', error);
@@ -29,7 +29,7 @@ function Home() {
         };
 
         fetchPrograms();
-    }, []);  // This useEffect runs once when the component mounts
+    }, []); 
 
     return (
         <div className="Body">
