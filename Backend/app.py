@@ -1,12 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import bcrypt
+import sqlite3
 
 # Initialize the Flask app
 app = Flask(__name__)
 
 # Database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///programs.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///asm.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -68,6 +70,36 @@ def submit_program():
         return jsonify({"message": "Error saving data", "error": str(e)}), 500
 
 
+def get_db_connection():
+    conn = sqlite3.connect('asm.db')
+    conn.row_factory = sqlite3.Row 
+    return conn
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    
+    if not username or not password:
+        return jsonify({"error": "Username and password are required"}), 400
+
+    conn = get_db_connection()
+
+   
+    user = conn.execute('SELECT * FROM admin_users WHERE username = ?', (username,)).fetchone()
+
+   
+    if user is None:
+        return jsonify({"error": "Invalid username or password"}), 401
+
+    
+    if bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
+        return jsonify({"message": "Login successful"}), 200  
+    else:
+        return jsonify({"error": "Invalid username or password"}), 401
 @app.route('/api/programs/<int:id>', methods=['DELETE'])
 def delete_program(id):
     program_to_delete = Program.query.get(id)
