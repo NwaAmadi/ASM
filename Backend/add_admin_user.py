@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS admin_users (
 conn.commit()
 
 
-username = 'admin' 
+username = 'Gospel' 
 password = 'admin123'
 
 
