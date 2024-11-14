@@ -33,7 +33,9 @@ def get_programs():
             'id': program.id, 
             'title': program.title,
             'dates': f"{program.start_date} - {program.end_date}",
-            'duration': f"{program.start_time} - {program.end_time}"
+            'duration': f"{program.start_time} - {program.end_time}",
+            'speakers': program.speakers,
+            'date': program.start_date,
         }
         for program in programs
     ]

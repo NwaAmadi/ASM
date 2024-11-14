@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: lexend;
+    padding: 10px 20px;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo styling */
+  .navbar-logo{
+    height: 40px;
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Title styling */
+  .navbar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+  }
+  
+  /* Sign-in button styling */
+  .navbar-signin .signin-btn {
+    padding: 8px 16px;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .navbar-signin .signin-btn:hover {
+    background-color: #16a085;
+  }
+  
