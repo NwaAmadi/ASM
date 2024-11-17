@@ -12,7 +12,7 @@ const Footer = ({ text }) => {
 
 
 Footer.defaultProps = {
-  text: "Aba South Conference of Seventh-day Adventist Church",
+  text: "Aba South Conference of Seventh-day Adventist Church | εpsilon",
 };
 
 
