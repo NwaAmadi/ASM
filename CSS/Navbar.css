@@ -21,6 +21,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     color: black;
+    font-family: lexend;
   }
   
   /* Sign-in button styling */
@@ -32,6 +33,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    font-family: lexend;
   }
   
   .navbar-signin .signin-btn:hover {

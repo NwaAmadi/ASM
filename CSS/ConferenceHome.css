@@ -64,13 +64,22 @@
   .schedule-section {
     margin-top: 20px;
   }
-  
+  .schedule-section h2{
+    font-family: lexend;
+    margin-left: 10px;
+  }
   .program-item {
     display: flex;
     align-items: center;
+    border-radius: 12px;
     justify-content: space-between;
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   
+    margin: 10px;
+    
   }
   
   .play-icon {
@@ -83,19 +92,25 @@
   .program-details {
     flex: 1;
     margin-left: 10px;
+    
   }
   
   .program-details h3 {
     margin: 0;
     font-size: 1.1rem;
+    font-family: inter;
   }
   
   .program-details p {
     margin: 5px 0;
     color: #555;
+    font-family: lexend;
   }
   
   .program-duration {
     font-weight: bold;
+    background-color: #F5F0E5;
+    padding: 10px;
+    border-radius: 10px;
   }
   
