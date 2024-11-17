@@ -17,6 +17,7 @@
     padding-right: 7px;
     margin-right: 20px;
     padding: 16px;
+    
 }
 .create-program-button:hover{
     background-color: #009963;
@@ -32,7 +33,9 @@
     background-color: white;
     margin-right: 20px;
     margin-left: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-left: 270px;
+    
   }
   .dropdown-content p{
     font-size: 1.5rem;

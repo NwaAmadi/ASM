@@ -1,8 +1,14 @@
 import '../CSS/Navbar.css';
-import Logo from '../SubComponents/Logo.jsx'
-import AdminLogin from './AdminLogin.jsx';
+import Logo from '../SubComponents/Logo.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleSignInClick = () => {
+    navigate('/login');
+  };
+
   return (
     <nav className="navbar">
       {/* Left: Logo */}
@@ -15,10 +21,11 @@ const Navbar = () => {
 
       {/* Right: Sign-in Button */}
       <div className="navbar-signin">
-        <button onClick={<AdminLogin />} className="signin-btn">Sign In</button>
+        <button onClick={handleSignInClick} className="signin-btn">
+          Sign In
+        </button>
       </div>
     </nav>
-
   );
 };
 

@@ -46,6 +46,8 @@ const styles = {
     marginTop:'20px',
     marginRight:'20px',
     height:'70px',
+    marginLeft:'250px',
+    maxWidth:'100%',
   },
   wreathContainer: {
     display: 'flex',

@@ -2,11 +2,13 @@ import { useState } from 'react';
 import PropTypes from 'prop-types'; 
 import styles from '../CSS/AdminLogin.module.css';
 import Logo from './Logo';
+import { useNavigate } from 'react-router-dom';
 
 function AdminLogin({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Import useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +20,8 @@ function AdminLogin({ onLoginSuccess }) {
     });
 
     if (response.ok) {
-      onLoginSuccess();
+      navigate('/home');
+      onLoginSuccess(); // Update state in Navbar
     } else {
       setError('Invalid username or password');
     }
@@ -42,7 +45,6 @@ function AdminLogin({ onLoginSuccess }) {
               required
               className={styles['input-field']}
             />
-            
           </div>
           <div className={styles['input-group']}>
             <input
@@ -54,7 +56,6 @@ function AdminLogin({ onLoginSuccess }) {
               required
               className={styles['input-field']}
             />
-            
           </div>
           <button type="submit" className={styles['login-button']}>Login</button>
           {error && <p className={styles['error-message']}>{error}</p>}

@@ -3,6 +3,7 @@ import '../CSS/home.css';
 import AdminHeader from "../SubComponents/AdminHeader";
 import SearchBar from "../SubComponents/SearchBar";
 import ProgramCard from "../SubComponents/ProgramCard";
+import Footer from '../SubComponents/Footer'
 import { useEffect, useState } from 'react';
 
 function Home() {
@@ -55,6 +56,7 @@ function Home() {
                     ))
                 )}
             </div>
+            <Footer />
         </div>
     );
 }
