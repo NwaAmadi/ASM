@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///asm.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# Define the Program model
+#DB model
 class Program(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -37,6 +37,7 @@ def get_programs():
             'speakers': program.speakers,
             'date': program.start_date,
             'priority':program.priority,
+            'about':program.about
         }
         for program in programs
     ]

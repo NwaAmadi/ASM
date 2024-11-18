@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ProgramCard from './ProgramCard';
+import FormatDate from './FormatDate';
+
 
 const AdminPage = () => {
   const [programs, setPrograms] = useState([]);
@@ -19,6 +21,8 @@ const AdminPage = () => {
     fetchPrograms();
   }, []);
 
+ 
+
   return (
     <div style={{ padding: '20px' }}>
       <h1>Programs List</h1>
@@ -26,10 +30,11 @@ const AdminPage = () => {
         <p>No programs available</p>
       ) : (
         programs.map((program, index) => (
+          
           <ProgramCard
             key={index}
             title={program.title}
-            dates={program.dates}
+            dates={FormatDate(program.dates)}
             duration={program.duration}
           />
         ))

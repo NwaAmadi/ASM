@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '../CSS/ConferenceHome.css';
 import PlayButton from './PlayButton';
 import RedDot from './RedDot';
+import InfoIcon from './InfoIcon';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -22,7 +23,7 @@ function formatDate(dateString) {
 }
 
 function getCurrentMonthAndYear() {
-  const date = new Date(); 
+  const date = new Date();
 
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -36,22 +37,22 @@ function getCurrentMonthAndYear() {
 }
 
 function getCurrentMonth() {
-  const date = new Date(); 
+  const date = new Date();
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  const month = monthNames[date.getMonth()];
-  return month;
+  return monthNames[date.getMonth()];
 }
 
 const ConferenceHome = () => {
   const [programs, setPrograms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [hoveredProgram, setHoveredProgram] = useState(null);
 
-  const currentMonth = getCurrentMonth();  // Get the current month (e.g., 'November')
+  const currentMonth = getCurrentMonth();
 
   useEffect(() => {
     const fetchPrograms = async () => {
@@ -78,7 +79,6 @@ const ConferenceHome = () => {
   return (
     <div>
       <div className="conference-home">
-        {/* Banner Section */}
         <div className="banner">
           <h1>{getCurrentMonthAndYear()}</h1>
           <p>
@@ -86,15 +86,13 @@ const ConferenceHome = () => {
           </p>
         </div>
 
-        {/* Schedule Section */}
         <div className="schedule-section">
-          <h2>{getCurrentMonth()}</h2>
+          <h2>{currentMonth}</h2>
           {programs.length > 0 ? (
             programs.map((program) => {
               const programMonth = new Date(program.date).toLocaleString('default', { month: 'long' });
               const isCurrentMonth = programMonth === currentMonth;
 
-              // Set color based on priority
               let dotColor;
               switch (program.priority) {
                 case 'Mandatory':
@@ -107,13 +105,13 @@ const ConferenceHome = () => {
                   dotColor = '#009963';
                   break;
                 default:
-                  dotColor = 'gray';  // Default color if priority is not defined
+                  dotColor = 'gray';
                   break;
               }
 
               return (
-                <div 
-                  className={`program-item ${isCurrentMonth ? '' : 'fade-out'}`} 
+                <div
+                  className={`program-item ${isCurrentMonth ? '' : 'fade-out'}`}
                   key={program.id}
                 >
                   <button className="play-icon"><PlayButton /></button>
@@ -121,6 +119,30 @@ const ConferenceHome = () => {
                     <h3>{program.title}</h3>
                     <p>Hosted by: {program.speakers || 'TBA'}</p>
                   </div>
+
+                  {/* Info Button with Pop-up */}
+                  <div
+                    className='info-button'
+                    onMouseEnter={() => setHoveredProgram(program)}
+                    onMouseLeave={() => setHoveredProgram(null)}
+                  >
+                    <div className='info'>
+                      <InfoIcon />
+                      <span className='info-text'>Info</span>
+                    </div>
+
+                    {hoveredProgram === program && (
+                      <div className="info-popup">
+                        <h4>{program.title}</h4>
+                        <p><strong>Speakers:</strong> {program.speakers || 'TBA'}</p>
+                        <p><strong>Date:</strong> {formatDate(program.date)}</p>
+                        <p><strong>Time:</strong> {program.duration || 'TBA'}</p>
+                        <p><strong>About:</strong> {program.about || 'No additional information.'}</p>
+                        <p><strong>Priority:</strong> {program.priority || 'Not Available'}</p>
+                      </div>
+                    )}
+                  </div>
+
                   <div className="priority">
                     <RedDot color={dotColor} />
                     <span className="priority-text">{program.priority}</span>

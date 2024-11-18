@@ -1,0 +1,10 @@
+.infoIcon img{
+    width: 17px;
+    height: 17px;
+    margin-right: 6px;
+}
+.infoIcon{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from '../CSS/AdminLogin.module.css';
 import Logo from './Logo';
 import { useNavigate } from 'react-router-dom';
+import Home from '../Maincomponents/Home';
 
 function AdminLogin({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
@@ -20,7 +21,8 @@ function AdminLogin({ onLoginSuccess }) {
     });
 
     if (response.ok) {
-      navigate('/home');
+      
+      navigate(<Home />);
       onLoginSuccess(); // Update state in Navbar
     } else {
       setError('Invalid username or password');
