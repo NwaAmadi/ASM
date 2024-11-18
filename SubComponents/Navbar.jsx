@@ -1,6 +1,7 @@
 import '../CSS/Navbar.css';
 import Logo from '../SubComponents/Logo.jsx';
 import { useNavigate } from 'react-router-dom';
+import Login from './Login.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Navbar = () => {
       {/* Right: Sign-in Button */}
       <div className="navbar-signin">
         <button onClick={handleSignInClick} className="signin-btn">
-          Sign In
+          <Login />
         </button>
       </div>
     </nav>

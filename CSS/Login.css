@@ -1,0 +1,18 @@
+.login img{
+    width: 20px;
+    height: 20px;
+    outline: black;
+    
+}
+.login:hover{
+
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #f3ebdb;
+    
+}

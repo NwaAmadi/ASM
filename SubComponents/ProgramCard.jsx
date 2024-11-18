@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types';
+import ImagePath  from './ImagePath';
+
+let path = ImagePath();
 
 const ProgramCard = ({ title, dates, duration }) => {
   return (
@@ -6,7 +9,7 @@ const ProgramCard = ({ title, dates, duration }) => {
           <div style={styles.banner}>
           <div style={styles.wreathContainer}>
             <img 
-              src="../Assets/TagPix.svg" 
+              src={path} 
               alt="Wreath Icon" 
               style={styles.wreathImage} 
             />
@@ -62,7 +65,7 @@ const styles = {
     justifyContent: 'center',
     width: '50px',
     height: '50px',
-    borderRadius: '50%',
+    borderRadius: '12%',
     //backgroundColor: '#e8e2d1', // Light background for program icon
     marginRight: '10px',
   },

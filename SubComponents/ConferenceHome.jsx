@@ -13,7 +13,7 @@ function formatDate(dateString) {
 
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'July', 'August', 'September', 'October', 'Nov.', 'December'
   ];
 
   const month = monthNames[date.getMonth()];
@@ -75,40 +75,42 @@ const ConferenceHome = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="conference-home">
-      {/* Banner Section */}
-      <div className="banner">
-        <h1>{getCurrentMonthAndYear()}</h1>
-        <p>
-          Join us for an enriching program designed for church workers, where inspiration, growth, and collaboration come together to strengthen our faith and service.
-        </p>
-      </div>
+    <div>
+        <div className="conference-home">
+        {/* Banner Section */}
+        <div className="banner">
+          <h1>{getCurrentMonthAndYear()}</h1>
+          <p>
+            Join us for an enriching program designed for church workers, where inspiration, growth, and collaboration come together to strengthen our faith and service.
+          </p>
+        </div>
 
-      {/* Schedule Section */}
-      <div className="schedule-section">
-        <h2>{getCurrentMonth()}</h2>
-        {programs.length > 0 ? (
-          programs.map((program) => {
-            const programMonth = new Date(program.date).toLocaleString('default', { month: 'long' });
-            const isCurrentMonth = programMonth === currentMonth;
+        {/* Schedule Section */}
+        <div className="schedule-section">
+          <h2>{getCurrentMonth()}</h2>
+          {programs.length > 0 ? (
+            programs.map((program) => {
+              const programMonth = new Date(program.date).toLocaleString('default', { month: 'long' });
+              const isCurrentMonth = programMonth === currentMonth;
 
-            return (
-              <div 
-                className={`program-item ${isCurrentMonth ? '' : 'fade-out'}`} 
-                key={program.id}
-              >
-                <button className="play-icon"><PlayButton /></button>
-                <div className="program-details">
-                  <h3>{program.title}</h3>
-                  <p>Hosted by: {program.speakers || 'TBA'}</p>
+              return (
+                <div 
+                  className={`program-item ${isCurrentMonth ? '' : 'fade-out'}`} 
+                  key={program.id}
+                >
+                  <button className="play-icon"><PlayButton /></button>
+                  <div className="program-details">
+                    <h3>{program.title}</h3>
+                    <p>Hosted by: {program.speakers || 'TBA'}</p>
+                  </div>
+                  <span className="program-duration">{formatDate(program.date)}</span>
                 </div>
-                <span className="program-duration">{formatDate(program.date)}</span>
-              </div>
-            );
-          })
-        ) : (
-          <p>No programs available.</p>
-        )}
+              );
+            })
+          ) : (
+            <p>No programs available.</p>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,10 @@
 *{
     overflow-x: hidden;
+    
 }
 /* Custom Scrollbar for Webkit Browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 1px;
     background-color: #f0f0f0;
     border-radius: 10px;
     padding-top: 10px;

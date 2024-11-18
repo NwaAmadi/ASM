@@ -35,8 +35,8 @@ const AdminSidebar = () => {
               <a href="#services">Speakers</a>
             </li>
             <li>
-              <img className="sidebar-icon" src="../Assets/Attendees.svg" alt="Attendees" />
-              <a href="#Attendees">Attendees</a>
+              <img className="sidebar-icon" src="../Assets/Attendees.svg" alt="Notify" />
+              <a href="#Notify">Notify</a>
             </li>
             <li>
               <img className="sidebar-icon" src="../Assets/Settings.svg" alt="settings" />
