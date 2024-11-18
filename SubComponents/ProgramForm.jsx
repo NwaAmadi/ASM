@@ -130,7 +130,7 @@ const ProgramForm = ({ closeForm }) => {
             required
           >
             <option value="">Select Priority</option>
-            <option value="High">Mandatory</option>
+            <option value="Mandatory">Mandatory</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
           </select>

@@ -36,6 +36,7 @@ def get_programs():
             'duration': f"{program.start_time} - {program.end_time}",
             'speakers': program.speakers,
             'date': program.start_date,
+            'priority':program.priority,
         }
         for program in programs
     ]

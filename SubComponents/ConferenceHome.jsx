@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../CSS/ConferenceHome.css';
 import PlayButton from './PlayButton';
+import RedDot from './RedDot';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -76,7 +77,7 @@ const ConferenceHome = () => {
 
   return (
     <div>
-        <div className="conference-home">
+      <div className="conference-home">
         {/* Banner Section */}
         <div className="banner">
           <h1>{getCurrentMonthAndYear()}</h1>
@@ -93,6 +94,23 @@ const ConferenceHome = () => {
               const programMonth = new Date(program.date).toLocaleString('default', { month: 'long' });
               const isCurrentMonth = programMonth === currentMonth;
 
+              // Set color based on priority
+              let dotColor;
+              switch (program.priority) {
+                case 'Mandatory':
+                  dotColor = 'red';
+                  break;
+                case 'Medium':
+                  dotColor = 'gray';
+                  break;
+                case 'Low':
+                  dotColor = '#009963';
+                  break;
+                default:
+                  dotColor = 'gray';  // Default color if priority is not defined
+                  break;
+              }
+
               return (
                 <div 
                   className={`program-item ${isCurrentMonth ? '' : 'fade-out'}`} 
@@ -102,6 +120,10 @@ const ConferenceHome = () => {
                   <div className="program-details">
                     <h3>{program.title}</h3>
                     <p>Hosted by: {program.speakers || 'TBA'}</p>
+                  </div>
+                  <div className="priority">
+                    <RedDot color={dotColor} />
+                    <span className="priority-text">{program.priority}</span>
                   </div>
                   <span className="program-duration">{formatDate(program.date)}</span>
                 </div>
