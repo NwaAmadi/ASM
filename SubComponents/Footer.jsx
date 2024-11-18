@@ -28,11 +28,12 @@ const footerStyle = {
   padding: '5px', 
   backgroundColor: '#3f3f3f', 
   height: 'auto', 
-  position: 'fixed',
+  position: 'relative',
   bottom: 0,
   left: 0,
   width: '100%',
   textAlign:'center',
+  marginTop:'10px',
 };
 
 const iconStyle = {

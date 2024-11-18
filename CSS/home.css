@@ -2,3 +2,9 @@
     /*background-color: aquamarine;*/
     margin-right: 5px;
 }
+.Body-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+}

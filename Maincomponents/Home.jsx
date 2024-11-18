@@ -3,8 +3,8 @@ import '../CSS/home.css';
 import AdminHeader from "../SubComponents/AdminHeader";
 import SearchBar from "../SubComponents/SearchBar";
 import ProgramCard from "../SubComponents/ProgramCard";
-import Footer from '../SubComponents/Footer'
 import { useEffect, useState } from 'react';
+import Footer from '../SubComponents/Footer'
 
 function Home() {
     const [programs, setPrograms] = useState([]);
@@ -33,7 +33,7 @@ function Home() {
     }, []); 
 
     return (
-        <div className="Body">
+        <div className="Body-container">
             <div className="Home">
                 <AdminHeader />
                 <AdminSidebar />

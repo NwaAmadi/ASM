@@ -1,3 +1,21 @@
 *{
     overflow-x: hidden;
 }
+/* Custom Scrollbar for Webkit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #505050; /* Color of the scrollbar thumb */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #505050; /* Thumb color on hover */
+}

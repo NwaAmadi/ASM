@@ -51,7 +51,6 @@ const AdminSidebar = () => {
       </div>
 
       {isOpen && <ProgramForm />}
-      
     </div>
   );
 };

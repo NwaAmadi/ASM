@@ -2,21 +2,23 @@ import PropTypes from 'prop-types';
 
 const ProgramCard = ({ title, dates, duration }) => {
   return (
-    <div style={styles.banner}>
-      <div style={styles.wreathContainer}>
-        <img 
-          src="../Assets/TagPix.svg" 
-          alt="Wreath Icon" 
-          style={styles.wreathImage} 
-        />
-      </div>
-      <div style={styles.text}>
-        <h2 style={styles.title}>{title}</h2>
-        <p style={styles.date}>{dates}</p>
-      </div>
-      <div style={styles.duration}>
-        <p>{duration}</p>
-      </div>
+    <div style={styles.bannerContainer}>
+          <div style={styles.banner}>
+          <div style={styles.wreathContainer}>
+            <img 
+              src="../Assets/TagPix.svg" 
+              alt="Wreath Icon" 
+              style={styles.wreathImage} 
+            />
+          </div>
+          <div style={styles.text}>
+            <h2 style={styles.title}>{title}</h2>
+            <p style={styles.date}>{dates}</p>
+          </div>
+          <div style={styles.duration}>
+            <p>{duration}</p>
+          </div>
+        </div>
     </div>
   );
 };
@@ -36,6 +38,10 @@ ProgramCard.defaultProps = {
 };
 
 const styles = {
+
+  bannerContainer:{
+  },
+
   banner: {
     display: 'flex',
     alignItems: 'center',
@@ -48,6 +54,7 @@ const styles = {
     height:'70px',
     marginLeft:'250px',
     maxWidth:'100%',
+    
   },
   wreathContainer: {
     display: 'flex',

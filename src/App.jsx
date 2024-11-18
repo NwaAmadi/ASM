@@ -16,6 +16,7 @@ function App() {
         {/* Route without Navbar */}
         <Route path="/home" element={<Home />} />
       </Routes>
+      
     </Router>
   );
 }
