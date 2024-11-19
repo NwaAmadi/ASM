@@ -3,14 +3,22 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import bcrypt
 import sqlite3
+import csv
+from twilio.rest import Client
 
 # Initialize the Flask app
 app = Flask(__name__)
+CORS(app)
 
 # Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///asm.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+#Twilio config
+ACCOUNT_SID = 'your_twilio_account_sid'
+AUTH_TOKEN = 'your_twilio_auth_token'
+TWILIO_PHONE_NUMBER = 'your_twilio_phone_number'
 
 #DB model
 class Program(db.Model):
@@ -116,6 +124,35 @@ def delete_program(id):
         return jsonify({"message": "Program deleted successfully"}), 200
     except Exception as e:
         return jsonify({"error": "Error deleting program", "details": str(e)}), 500
+    
+
+@app.route('/api/send-notification', methods=['POST'])
+def send_notification():
+    program_title = request.form.get('programTitle')
+    message = request.form.get('message')
+    csv_file = request.files.get('csvFile')
+
+    if not program_title or not message or not csv_file:
+        return jsonify({"error": "Missing required fields"}), 400
+
+    contacts = []
+    try:
+        csv_reader = csv.reader(csv_file.stream)
+        for row in csv_reader:
+            contacts.append(row[0])  # Assuming the phone numbers are in the first column
+
+        client = Client(ACCOUNT_SID, AUTH_TOKEN)
+        for contact in contacts:
+            client.messages.create(
+                body=f"{program_title}: {message}",
+                from_=TWILIO_PHONE_NUMBER,
+                to=contact
+            )
+
+        return jsonify({"message": "Notification sent successfully!"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 CORS(app)
 

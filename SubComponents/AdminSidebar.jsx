@@ -2,19 +2,26 @@ import "../CSS/adminSidebar.css";
 import Logo from "./Logo";
 import { useState } from "react";
 import ProgramForm from './ProgramForm';
+import NotificationModal from '../SubComponents/NotificationModal';
 
 const AdminSidebar = () => {
-
   const [isOpen, setIsOpen] = useState(false);
+  const [isNotifyOpen, setIsNotifyOpen] = useState(false);
 
-    // Function to toggle dropdown
-    const handleToggle = () => {
-        setIsOpen(!isOpen);
-    };
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleNotifyClick = () => {
+    setIsNotifyOpen(true);
+  };
+
+  const closeNotifyModal = () => {
+    setIsNotifyOpen(false);
+  };
 
   return (
     <div>
-      
       <div className="sidebar">
         <div className="sidebar-content">
           <ul>
@@ -31,12 +38,10 @@ const AdminSidebar = () => {
               <a href="#about">Programs</a>
             </li>
             <li>
-              <img className="sidebar-icon" src="../Assets/Speakers.svg" alt="Speakers" />
-              <a href="#services">Speakers</a>
-            </li>
-            <li>
-              <img className="sidebar-icon" src="../Assets/Attendees.svg" alt="Notify" />
-              <a href="#Notify">Notify</a>
+              <button className="NB" onClick={handleNotifyClick}>
+                <img className="sidebar-icon" src="../Assets/Attendees.svg" alt="Notify"  />
+                <a href="#Notify">Notify</a>
+              </button>
             </li>
             <li>
               <img className="sidebar-icon" src="../Assets/Settings.svg" alt="settings" />
@@ -44,13 +49,14 @@ const AdminSidebar = () => {
             </li>
           </ul>
         </div>
-       
+
         <div className="create-program">
           <button onClick={handleToggle}>Create a New Program</button>
         </div>
       </div>
 
       {isOpen && <ProgramForm />}
+      {isNotifyOpen && <NotificationModal onClose={closeNotifyModal} />}
     </div>
   );
 };
