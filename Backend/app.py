@@ -16,9 +16,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 #Twilio config
-ACCOUNT_SID = 'your_twilio_account_sid'
-AUTH_TOKEN = 'your_twilio_auth_token'
-TWILIO_PHONE_NUMBER = 'your_twilio_phone_number'
+ACCOUNT_SID = 'ACba7940f5c13ccb063ba7b841114b541f'
+AUTH_TOKEN = '58d8c4fef7843f4d4082235fb87c9b77'
+TWILIO_PHONE_NUMBER = '+12568297384'
 
 #DB model
 class Program(db.Model):
@@ -137,10 +137,14 @@ def send_notification():
 
     contacts = []
     try:
-        csv_reader = csv.reader(csv_file.stream)
-        for row in csv_reader:
-            contacts.append(row[0])  # Assuming the phone numbers are in the first column
+        # Open the file in text mode
+        file_stream = csv_file.stream.read().decode('utf-8').splitlines()
+        csv_reader = csv.reader(file_stream)
 
+        for row in csv_reader:
+            contacts.append(row[0])  # Assuming the phone numbers are in the second column
+
+        # Send messages via Twilio
         client = Client(ACCOUNT_SID, AUTH_TOKEN)
         for contact in contacts:
             client.messages.create(
@@ -152,6 +156,7 @@ def send_notification():
         return jsonify({"message": "Notification sent successfully!"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 
 CORS(app)

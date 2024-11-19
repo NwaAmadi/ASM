@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types"; 
+import PropTypes from "prop-types";
 import { useDropzone } from "react-dropzone";
 import "../CSS/notificationModal.css";
 
@@ -17,9 +17,9 @@ const NotificationModal = ({ onClose }) => {
       .catch((error) => console.error("Error fetching programs:", error));
   }, []);
 
+  // Handle file upload
   const handleFileUpload = (files) => {
-    // Set the first file from the dropzone files
-    setCsvFile(files[0]);
+    setCsvFile(files[0]); // Use the first file uploaded
   };
 
   const handleSend = async () => {
@@ -40,7 +40,7 @@ const NotificationModal = ({ onClose }) => {
       });
 
       const result = await response.json();
-      alert(result.message);
+      alert(result.message || result.error); // Show success/error message
       onClose();
     } catch (error) {
       console.error("Error sending notification:", error);
@@ -70,25 +70,23 @@ const NotificationModal = ({ onClose }) => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        
+
         {/* Drag and drop area */}
-        <div
-          {...getRootProps({ className: "dropzone" })}
-          className="dropzone"
-        >
+        <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
           <p>Drag & drop your CSV file here, or click to select</p>
         </div>
 
-        <button className="send-button" onClick={handleSend}>Send</button>
+        <button className="send-button" onClick={handleSend}>
+          Send
+        </button>
       </div>
     </div>
   );
 };
 
-
 NotificationModal.propTypes = {
-  onClose: PropTypes.func.isRequired, 
+  onClose: PropTypes.func.isRequired,
 };
 
 export default NotificationModal;
