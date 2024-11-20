@@ -1,199 +1,262 @@
 .conference-home {
-    font-family: lexend;
-    padding: 20px;
-    max-width: 950px;
-    margin: 0 auto;
-  }
+  font-family: lexend;
+  padding: 20px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.banner {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(rgba(0,0,0,0.623), rgba(0, 0, 0, 0.623)), url(../Assets/formal-conference-gathering-stockcake.jpg);
+  background-size: cover;
+  padding: 40px;
+  border-radius: 10px;
+  height: 300px;
+  justify-content: center;
+  background-position: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: white;
+  justify-content: center;
+  font-family: lexend;
+}
+
+.banner p {
+  color: white;
+  margin-bottom: 20px;
+  justify-content: center;
+  font-family: lexend;
+}
+
+.buy-tickets-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tabs {
+  display: flex;
+  justify-content: left;
+  margin: 20px 0;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.tab.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.schedule-section {
+  margin-top: 20px;
+  font-family: lexend;
+}
+.schedule-section h2{
+  font-family: lexend;
+  margin-left: 10px;
+}
+.program-item {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: 10px;
   
-  .banner {
-    background-color: #f5f5f5;
-    background-image: linear-gradient(rgba(0,0,0,0.623), rgba(0, 0, 0, 0.623)), url(../Assets/formal-conference-gathering-stockcake.jpg);
-    background-size: cover;
-    padding: 40px;
-    border-radius: 10px;
-    height: 300px;
-    justify-content: center;
-    background-position: center;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-  }
+}
+
+.play-icon {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.program-details {
+  flex: 1;
+  margin-left: 10px;
   
-  .banner h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: white;
-    justify-content: center;
-    font-family: lexend;
-  }
-  
-  .banner p {
-    color: white;
-    margin-bottom: 20px;
-    justify-content: center;
-    font-family: lexend;
-  }
-  
-  .buy-tickets-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .tabs {
-    display: flex;
-    justify-content: left;
-    margin: 20px 0;
-  }
-  
-  .tab {
-    padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    margin: 0 5px;
-  }
-  
-  .tab.active {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .schedule-section {
-    margin-top: 20px;
-    font-family: lexend;
-  }
-  .schedule-section h2{
-    font-family: lexend;
-    margin-left: 10px;
-  }
-  .program-item {
-    display: flex;
-    align-items: center;
-    border-radius: 12px;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    margin: 10px;
-    
-  }
-  
-  .play-icon {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  .program-details {
-    flex: 1;
-    margin-left: 10px;
-    
-  }
-  
-  .program-details h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    font-family: inter;
-    color: #1C170D;
-  }
-  
-  .program-details p {
-    margin: 5px 0;
-    color: #555;
-    font-family: lexend;
-  }
-  
-  .program-duration {
-    font-weight: bold;
-    background-color: #F5F0E5;
-    padding: 10px;
-    border-radius: 10px;
-    color: #353534;
-    font-family: lexend;
-    font-weight: 500;
-  }
-  
+}
+
+.program-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: inter;
+  color: #1C170D;
+}
+
+.program-details p {
+  margin: 5px 0;
+  color: #555;
+  font-family: lexend;
+}
+
+.program-duration {
+  font-weight: bold;
+  background-color: #F5F0E5;
+  padding: 10px;
+  border-radius: 10px;
+  color: #353534;
+  font-family: lexend;
+  font-weight: 500;
+}
+
 .program-item.fade-out {
-  opacity: 0.3;
-  transition: opacity 0.3s ease;
+opacity: 0.3;
+transition: opacity 0.3s ease;
 }
 .program-item.fade-out:hover {
-  cursor: not-allowed;
+cursor: not-allowed;
 }
 .priority{
-  font-weight: bold;
-  background-color: #F5F0E5;
-  padding: 10px;
-  border-radius: 10px;
-  color: #353534;
-  font-family: lexend;
-  font-weight: 400;
-  margin-right: 6px;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
+font-weight: bold;
+background-color: #F5F0E5;
+padding: 10px;
+border-radius: 10px;
+color: #353534;
+font-family: lexend;
+font-weight: 400;
+margin-right: 6px;
+display: flex;
+justify-content: center; 
+align-items: center;
 }
 .priority-text{
-  margin-left: 7px;
+margin-left: 7px;
 }
 .info{
-  font-weight: bold;
-  background-color: #F5F0E5;
-  padding: 10px;
-  border-radius: 10px;
-  color: #353534;
-  font-family: lexend;
-  font-weight: 400;
-  margin-right: 6px;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  display: flex;
-  gap: 5px;
+font-weight: bold;
+background-color: #F5F0E5;
+padding: 10px;
+border-radius: 10px;
+color: #353534;
+font-family: lexend;
+font-weight: 400;
+margin-right: 6px;
+display: flex;
+justify-content: center; 
+align-items: center;
+display: flex;
+gap: 5px;
 }
 .info-button{
-  border: none;
-  background: none;
-  position: relative;
-  cursor: pointer;
+border: none;
+background: none;
+position: relative;
+cursor: pointer;
 }
 
 
 
 
 .info-popup {
-  position: fixed;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  color: #333;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
-  z-index: 1000;
-  text-align: left;
+position: fixed;
+top: 45%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #fff;
+color: #333;
+padding: 15px;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+width: 300px;
+z-index: 1000;
+text-align: left;
 }
 
 .info-popup h4 {
-  margin: 0 0 10px;
-  font-size: 16px;
+margin: 0 0 10px;
+font-size: 16px;
 }
 
 .info-popup p {
-  margin: 5px 0;
-  font-size: 14px;
+margin: 5px 0;
+font-size: 14px;
 }
 
 .conference-home {
-  position: relative;
+position: relative;
+}
+
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 1.5rem;
+  }
+
+  .banner p {
+    font-size: 0.9rem;
+  }
+
+  .program-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .program-details {
+    flex: 1 1 auto;
+    margin: 0;
+  }
+
+  .priority,
+  .program-duration {
+    flex: 1 1 auto;
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .info-popup {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 20px;
+  }
+
+  .banner h1 {
+    font-size: 1.2rem;
+  }
+
+  .banner p {
+    font-size: 0.8rem;
+  }
+
+  .program-item {
+    padding: 10px 5px;
+  }
+
+  .program-details h3 {
+    font-size: 1rem;
+  }
+
+  .program-details p {
+    font-size: 0.9rem;
+  }
+
+  .priority,
+  .program-duration {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
 }
