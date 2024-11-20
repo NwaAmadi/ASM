@@ -74,7 +74,7 @@ const NotificationModal = ({ onClose }) => {
         {/* Drag and drop area */}
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <p>Drag & drop your CSV file here, or click to select</p>
+          <p>{csvFile ? `Uploaded File: ${csvFile.name}` : "Drag & drop your CSV file here, or click to select"}</p>
         </div>
 
         <button className="send-button" onClick={handleSend}>
