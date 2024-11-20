@@ -5,6 +5,8 @@ import bcrypt
 import sqlite3
 import csv
 from twilio.rest import Client
+from dotenv import load_dotenv
+import os
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -16,9 +18,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 #Twilio config
-#ACCOUNT_SID = 'ACba7940f5c13ccb063ba7b841114b541f'
-#AUTH_TOKEN = '58d8c4fef7843f4d4082235fb87c9b77'
-#TWILIO_PHONE_NUMBER = '+12568297384'
+load_dotenv()
+
+ACCOUNT_SID = os.getenv('ACCOUNT_SID')
+AUTH_TOKEN = os.getenv('AUTH_TOKEN')
+TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER')
 
 #DB model
 class Program(db.Model):
