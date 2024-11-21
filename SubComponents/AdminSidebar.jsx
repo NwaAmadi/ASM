@@ -33,9 +33,9 @@ const AdminSidebar = () => {
               <img className="sidebar-icon" src="../Assets/Home.svg" alt="Home" />
               <a href="#home">Dashboard</a>
             </li>
-            <li>
-              <img className="sidebar-icon" src="../Assets/Calendar.svg" alt="Programs" />
-              <a href="#about">Programs</a>
+            <li id="programs">
+              <img className="sidebar-icon"  src="../Assets/Calendar.svg" alt="Programs" />
+              <a href="#programs">Programs</a>
             </li>
             <li>
               <button className="NB" onClick={handleNotifyClick}>
@@ -43,7 +43,7 @@ const AdminSidebar = () => {
                 <a href="#Notify">Notify</a>
               </button>
             </li>
-            <li>
+            <li id="settings">
               <img className="sidebar-icon" src="../Assets/Settings.svg" alt="settings" />
               <a href="#settings">Settings</a>
             </li>

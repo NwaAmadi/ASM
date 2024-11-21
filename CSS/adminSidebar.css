@@ -101,3 +101,8 @@
   align-items: center;
   justify-content: center;
 }
+#programs, #settings{
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  cursor: not-allowed;
+}
