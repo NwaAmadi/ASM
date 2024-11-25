@@ -83,7 +83,9 @@ const ConferenceHome = () => {
         <div className="banner">
           <h1>{getCurrentMonthAndYear()}</h1>
           <p>
-            Join us for an enriching program designed for church workers, where inspiration, growth, and collaboration come together to strengthen our faith and service.
+            Join us for an enriching program designed for church workers & members, where 
+            inspiration, growth, and collaboration come together 
+            to strengthen our faith and service.
           </p>
         </div>
 

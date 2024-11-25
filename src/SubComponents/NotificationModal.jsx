@@ -58,7 +58,7 @@ const NotificationModal = ({ onClose }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>Send Notification</h2>
         <select value={selectedProgram} onChange={(e) => setSelectedProgram(e.target.value)}>
-          <option value="">Select Program</option>
+          <option value=""> <p className="prompt-header">Select Program</p> </option>
           {programs.map((program) => (
             <option key={program.id} value={program.title}>
               {program.title}
