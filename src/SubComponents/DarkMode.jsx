@@ -26,7 +26,7 @@ const DarkMode = () => {
             {darkMode ? (
                 <img className='light' src="../Assets/light-theme.svg" alt="Light Mode" />
             ) : (
-                <img className='dark' src="../Assets/dark-mode.svg" alt="Dark Mode" />
+                <img className='dark' src="../Assets/moon.svg" alt="Dark Mode" />
             )}
         </button>
   );

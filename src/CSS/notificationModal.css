@@ -133,8 +133,6 @@ input[type="file"] {
 .dropzone:hover {
   background-color: #e9ecef;
 }
-
-
 .dropzone p {
   font-size: 14px;
   color: #444444;
