@@ -104,22 +104,24 @@ function AdminHeader() {
 
                 {/* Delete Program Dropdown */}
                 {isDeleteOpen && (
-                    <div className="delete-dropdown" ref={deleteDropdownRef}>
-                        <h4>Select a Program to Delete</h4>
-                        <select value={selectedProgram} onChange={handleProgramSelect}>
-                            <option value="">Select Program</option>
-                            {programs.map((program, index) => (
-                                <option key={index} value={program.id}> {/* Set value to program's ID */}
-                                    {program.title}
-                                </option>
-                            ))}
-                        </select>
-                        <button 
-                            onClick={() => handleDeleteProgram(selectedProgram)} 
-                            className="confirm-delete-button"
-                        >
-                            Delete
-                        </button>
+                    <div className='delete-dropdown-overlay'>
+                        <div className="delete-dropdown" ref={deleteDropdownRef}>
+                            <h4>Select a Program to Delete</h4>
+                            <select value={selectedProgram} onChange={handleProgramSelect}>
+                                <option value="">Select Program</option>
+                                {programs.map((program, index) => (
+                                    <option key={index} value={program.id}> {/* Set value to program's ID */}
+                                        {program.title}
+                                    </option>
+                                ))}
+                            </select>
+                            <button 
+                                onClick={() => handleDeleteProgram(selectedProgram)} 
+                                className="confirm-delete-button"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 )}
             </div>

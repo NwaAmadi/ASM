@@ -123,4 +123,14 @@
     margin: 5px;
     border: 2px solid #007bff;
 }
-
+.delete-dropdown-overlay{
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+}
