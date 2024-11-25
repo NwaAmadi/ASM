@@ -17,11 +17,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Routes with Navbar */}
         <Route path="/" element={<><Navbar /><ConferenceHome /> <Footer /></>} />
         <Route path="/login" element={<><Navbar /><AdminLogin onLoginSuccess={handleLoginSuccess} /></>} />
 
-        {/* Protected Route - Only accessible if logged in */}
         <Route 
           path="/home" 
           element={isLoggedIn ? <Home /> : <Navigate to="/login" />} 
