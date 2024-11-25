@@ -9,7 +9,7 @@ const NotificationModal = ({ onClose }) => {
   const [message, setMessage] = useState("");
   const [csvFile, setCsvFile] = useState(null);
 
-  // Fetch programs from the backend
+  
   useEffect(() => {
     fetch("http://localhost:5000/api/programs")
       .then((res) => res.json())
@@ -17,9 +17,9 @@ const NotificationModal = ({ onClose }) => {
       .catch((error) => console.error("Error fetching programs:", error));
   }, []);
 
-  // Handle file upload
+  
   const handleFileUpload = (files) => {
-    setCsvFile(files[0]); // Use the first file uploaded
+    setCsvFile(files[0]); 
   };
 
   const handleSend = async () => {
@@ -40,17 +40,17 @@ const NotificationModal = ({ onClose }) => {
       });
 
       const result = await response.json();
-      alert(result.message || result.error); // Show success/error message
+      alert(result.message || result.error); 
       onClose();
     } catch (error) {
       console.error("Error sending notification:", error);
     }
   };
 
-  // Initialize the dropzone with onDrop callback
+  
   const { getRootProps, getInputProps } = useDropzone({
-    accept: ".csv", // Only accept .csv files
-    onDrop: handleFileUpload, // Handle the dropped files
+    accept: ".csv", 
+    onDrop: handleFileUpload, 
   });
 
   return (
@@ -74,7 +74,7 @@ const NotificationModal = ({ onClose }) => {
         {/* Drag and drop area */}
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <p>{csvFile ? `Uploaded File: ${csvFile.name}` : "Drag & drop your CSV file here, or click to select"}</p>
+          <p>{csvFile ? `Send to: ${csvFile.name}` : "Drag & drop your CSV file here, or click to select"}</p>
         </div>
 
         <button className="send-button" onClick={handleSend}>
