@@ -4,6 +4,7 @@ import AdminHeader from "../SubComponents/AdminHeader";
 import SearchBar from "../SubComponents/SearchBar";
 import ProgramCard from "../SubComponents/ProgramCard";
 import { useEffect, useState } from 'react';
+import Footer from '../SubComponents/Footer'
 
 function Home() {
     const [programs, setPrograms] = useState([]);
@@ -55,6 +56,7 @@ function Home() {
                     ))
                 )}
             </div>
+            <Footer />
         </div>
     );
 }

@@ -43,7 +43,7 @@ function AdminHeader() {
 
     // Confirm and delete the selected program
     const handleDeleteProgram = async (programId) => {
-        const confirmation = window.confirm("Are you sure you want to delete the selected program?\nWarning! This action can't be undone!!");
+        const confirmation = window.confirm("Are you sure you want to delete this program?\nWarning! This action cant be undone!!");
         if (confirmation) {
             try {
                 const response = await fetch(`http://127.0.0.1:5000/api/programs/${programId}`, {

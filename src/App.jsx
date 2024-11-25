@@ -15,7 +15,7 @@ function App() {
         <Route path="/login" element={<><Navbar /><AdminLogin /></>} />
 
         {/* Route without Navbar */}
-        <Route path="/home" element={<><Home /><Footer /></>} />
+        <Route path="/home" element={<Home />} />
       </Routes>
       
     </Router>

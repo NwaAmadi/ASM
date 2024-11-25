@@ -8,16 +8,16 @@ from twilio.rest import Client
 from dotenv import load_dotenv
 import os
 
-
+# Initialize the Flask app
 app = Flask(__name__)
 CORS(app)
 
-
+# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///asm.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-
+#Twilio config
 load_dotenv()
 
 ACCOUNT_SID = os.getenv('ACCOUNT_SID')
@@ -146,7 +146,7 @@ def send_notification():
         csv_reader = csv.reader(file_stream)
 
         for row in csv_reader:
-            contacts.append(row[0])  #The phone numbers are in the second column
+            contacts.append(row[0])  # Assuming the phone numbers are in the second column
 
         # Send messages via Twilio
         client = Client(ACCOUNT_SID, AUTH_TOKEN)
