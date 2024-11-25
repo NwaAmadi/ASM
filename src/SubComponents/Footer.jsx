@@ -34,6 +34,7 @@ const footerStyle = {
   width: '100%',
   textAlign:'center',
   marginTop:'10px',
+
 };
 
 const iconStyle = {
