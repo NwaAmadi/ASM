@@ -2,6 +2,7 @@ import '../CSS/Navbar.css';
 import Logo from '../SubComponents/Logo.jsx';
 import { useNavigate } from 'react-router-dom';
 import Login from './Login.jsx';
+import DarkMode from './DarkMode.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -12,16 +13,17 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      {/* Left: Logo */}
       <div className="navbar-logo">
         <Logo />
       </div>
 
-      {/* Center: Title */}
       <div className="navbar-title">ASC Schedule Manager</div>
 
-      {/* Right: Sign-in Button */}
       <div className="navbar-signin">
+        <button className='Modes'>
+          <DarkMode />
+        </button>
+
         <button onClick={handleSignInClick} className="signin-btn">
           <Login />
         </button>

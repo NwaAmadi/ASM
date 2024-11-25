@@ -37,3 +37,10 @@
   justify-items: center;
   
 }
+.navbar-signin{
+  display: flex;
+}
+.Modes{
+  background: none;
+  border: none;
+}

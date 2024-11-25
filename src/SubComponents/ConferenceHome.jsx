@@ -3,6 +3,7 @@ import '../CSS/ConferenceHome.css';
 import PlayButton from './PlayButton';
 import RedDot from './RedDot';
 import InfoIcon from './InfoIcon';
+import '../CSS/dark-mode.css'
 
 function formatDate(dateString) {
   const date = new Date(dateString);

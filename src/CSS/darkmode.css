@@ -1,0 +1,13 @@
+.dark{
+    width: 20px;
+    height: 20px;
+}
+.light{
+    width: 20px;
+    height: 20px;
+}
+.dark-mode-toggle-btn{
+    background: none;
+    border: none;
+    align-content: center;
+}
