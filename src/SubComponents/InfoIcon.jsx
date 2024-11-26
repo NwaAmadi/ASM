@@ -1,9 +1,9 @@
-import '../CSS/InfoIcon.css'
-
+import '../CSS/InfoIcon.css';
+import Icon from '../../public/Assets/InfoIcon.svg';
 function InfoIcon() {
     return(
         <div className="infoIcon">
-            <img src="/public/Assets/InfoIcon.svg" alt="Logo"/>
+            <img src={Icon} alt="Logo"/>
         </div>
     );
 }
