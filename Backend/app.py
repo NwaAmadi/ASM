@@ -161,8 +161,6 @@ def send_notification():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-
 CORS(app)
 
 
