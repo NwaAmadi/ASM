@@ -1,4 +1,4 @@
-import AdminSidebar from "../SubComponents/adminSidebar";
+import AdminSidebar from "../SubComponents/AdminSidebar";
 import '../CSS/home.css';
 import AdminHeader from "../SubComponents/AdminHeader";
 import SearchBar from "../SubComponents/SearchBar";
