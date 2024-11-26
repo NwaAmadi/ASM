@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import '../CSS/ConferenceHome.css';
-import PlayButton from './PlayButton';
-import RedDot from './RedDot';
-import InfoIcon from './InfoIcon';
+import PlayButton from '../SubComponents/PlayButton';
+import RedDot from '../SubComponents/RedDot';
+import InfoIcon from '../SubComponents/InfoIcon';
 import '../CSS/dark-mode.css'
 
 function formatDate(dateString) {

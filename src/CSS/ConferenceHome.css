@@ -7,7 +7,7 @@
 
 .banner {
   background-color: #f5f5f5;
-  background-image: linear-gradient(rgba(0,0,0,0.623), rgba(0, 0, 0, 0.623)), url(../Assets/formal-conference-gathering-stockcake.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.623), rgba(0, 0, 0, 0.623)), url(../../Assets/ConfPix.jpg);
   background-size: cover;
   padding: 40px;
   border-radius: 10px;

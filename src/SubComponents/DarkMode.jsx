@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../CSS/darkmode.css'
+import '../CSS/darkmode.css';
 
 const DarkMode = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -24,9 +24,9 @@ const DarkMode = () => {
   return (
         <button onClick={toggleDarkMode} className="dark-mode-toggle-btn">
             {darkMode ? (
-                <img className='light' src="../Assets/light-theme.svg" alt="Light Mode" />
+                <img className='light' src="../../Assets/light-theme.svg" alt="Light Mode" />
             ) : (
-                <img className='dark' src="../Assets/moon.svg" alt="Dark Mode" />
+                <img className='dark' src="../../Assets/moon.svg" alt="Dark Mode" />
             )}
         </button>
   );

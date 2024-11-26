@@ -1,8 +1,8 @@
 import '../CSS/Navbar.css';
 import Logo from '../SubComponents/Logo.jsx';
 import { useNavigate } from 'react-router-dom';
-import Login from './Login.jsx';
-import DarkMode from './DarkMode.jsx';
+import Login from '../SubComponents/Login.jsx';
+import DarkMode from '../SubComponents/DarkMode.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();

@@ -5,7 +5,7 @@ const SearchBar = () => {
       <form className="search-form">
         <div className="search-input-container">
           <span className="search-icon">
-            <img src="../Assets/searchicon.svg" alt="Search Icon" className="icon-img" />
+            <img src="../../Assets/searchicon.svg" alt="Search Icon" className="icon-img" />
           </span>
           <input
             type="text"

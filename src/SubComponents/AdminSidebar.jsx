@@ -30,21 +30,21 @@ const AdminSidebar = () => {
               <h4>Admin</h4>
             </div>
             <li>
-              <img className="sidebar-icon" src="../Assets/Home.svg" alt="Home" />
+              <img className="sidebar-icon" src="../../Assets/Home.svg" alt="Home" />
               <a href="#home">Dashboard</a>
             </li>
             <li id="programs">
-              <img className="sidebar-icon"  src="../Assets/Calendar.svg" alt="Programs" />
+              <img className="sidebar-icon"  src="../../Assets/Calendar.svg" alt="Programs" />
               <a href="#programs">Programs</a>
             </li>
             <li>
               <button className="NB" onClick={handleNotifyClick}>
-                <img className="sidebar-icon" src="../Assets/Attendees.svg" alt="Notify"  />
+                <img className="sidebar-icon" src="../../Assets/Attendees.svg" alt="Notify"  />
                 <a href="#Notify">Notify</a>
               </button>
             </li>
             <li id="settings">
-              <img className="sidebar-icon" src="../Assets/Settings.svg" alt="settings" />
+              <img className="sidebar-icon" src="../../Assets/Settings.svg" alt="settings" />
               <a href="#settings">Settings</a>
             </li>
           </ul>
