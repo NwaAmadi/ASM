@@ -1,1 +1,81 @@
-/*System Wide dark mode*/
+/* Light Mode Styles (Default) */
+.navbar {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.program-item {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.banner {
+    background-color: #f5f5f5;
+    background-image: linear-gradient(rgba(0,0,0,0.623), rgba(0, 0, 0, 0.623)), url(../../Assets/ConfPix.jpg);
+    color: #333;
+}
+
+.banner h1, .banner p {
+    color: #f5f5f5;
+}
+
+.program-details h3 {
+    color: #1C170D;
+}
+
+.program-duration {
+    background-color: #F5F0E5;
+    color: #353534;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* White text */
+}
+
+.navbar.dark-mode {
+    background-color: #333; /* Dark navbar */
+    color: #ffffff; /* White text */
+}
+
+.program-item.dark-mode {
+    background-color: #333; /* Dark program item background */
+    color: #ffffff; /* White text */
+}
+
+.banner.dark-mode {
+    background-color: #1f1f1f;
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../../Assets/ConfPix.jpg);
+    color: #ffffff;
+}
+
+.banner.dark-mode h1, .banner.dark-mode p {
+    color: #ffffff; /* White text for the banner */
+}
+
+.program-details.dark-mode h3 {
+    color: #ffffff; /* White text for program details */
+}
+
+.program-duration.dark-mode {
+    background-color: #444; /* Darker background for program duration */
+    color: #ffffff; /* White text */
+}
+
+/* Add dark mode styles for other components */
+.priority.dark-mode {
+    background-color: #444;
+    color: #f48fb1;
+}
+
+.info.dark-mode {
+    background-color: #444;
+    color: #90caf9;
+}
+
+.info-popup.dark-mode {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
