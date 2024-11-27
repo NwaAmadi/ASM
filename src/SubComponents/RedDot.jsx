@@ -17,7 +17,7 @@ const RedDot = ({ color }) => {
 
 // Prop validation
 RedDot.propTypes = {
-  color: PropTypes.oneOf(['red', 'gray', 'green']).isRequired,  // The color must be one of the specified values
+  color: PropTypes.oneOf(['red', 'gray', '#009963']).isRequired,  // The color must be one of the specified values
 };
 
 export default RedDot;
