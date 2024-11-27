@@ -36,6 +36,12 @@ function getCurrentMonthAndYear() {
 
   return `${month} ${year}`;
 }
+function getCurrentDay() {
+  return new Date().getDate();
+}
+/*function getCurrentYear() {
+  return new Date().getFullYear();
+}*/
 
 function getCurrentMonth() {
   const date = new Date();
@@ -90,7 +96,14 @@ const ConferenceHome = () => {
         </div>
 
         <div className="schedule-section">
-          <h2>{currentMonth}</h2>
+          <div className='month'>
+            <div className='month-name'>
+              <RedDot color='green'/>
+              <h2 className=''>{currentMonth}</h2>
+              <h2>{"'"}{getCurrentDay()}</h2>
+            </div>
+            {/*<h2>{getCurrentYear()}</h2>*/}
+          </div>
           {programs.length > 0 ? (
             programs.map((program) => {
               const programMonth = new Date(program.date).toLocaleString('default', { month: 'long' });

@@ -30,18 +30,18 @@
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #696969; /* Dark background */
-    color: #ffffff; /* White text */
+    background-color: #494949; 
+    color: #ffffff; 
 }
 
 .navbar.dark-mode {
-    background-color: #333; /* Dark navbar */
-    color: #ffffff; /* White text */
+    background-color: #333;
+    color: #ffffff;
 }
 
 .program-item.dark-mode {
-    background-color: #333; /* Dark program item background */
-    color: #ffffff; /* White text */
+    background-color: #333; 
+    color: #ffffff; 
 }
 
 .banner.dark-mode {
@@ -51,19 +51,19 @@ body.dark-mode {
 }
 
 .banner.dark-mode h1, .banner.dark-mode p {
-    color: #ffffff; /* White text for the banner */
+    color: #ffffff;
 }
 
 .program-details.dark-mode h3 {
-    color: #ffffff; /* White text for program details */
+    color: #ffffff; 
 }
 
 .program-duration.dark-mode {
-    background-color: #444; /* Darker background for program duration */
-    color: #ffffff; /* White text */
+    background-color: #444;
+    color: #ffffff; 
 }
 
-/* Add dark mode styles for other components */
+
 .priority.dark-mode {
     background-color: #444;
     color: #f48fb1;
@@ -78,4 +78,7 @@ body.dark-mode {
     background-color: #2e2e2e;
     color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+.month-name h2{
+    color: #2e2e2e;
 }

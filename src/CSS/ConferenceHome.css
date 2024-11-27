@@ -25,6 +25,7 @@
   color: white;
   justify-content: center;
   font-family: lexend;
+  
 }
 
 .banner p {
@@ -70,6 +71,22 @@
 .schedule-section h2{
   font-family: lexend;
   margin-left: 10px;
+}
+
+.month{
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.month-name{
+  background-color: #f5f0e53d;
+  padding-right: 13px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+  border: 1px solid green;
 }
 .program-item{
   display: flex;
