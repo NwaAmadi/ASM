@@ -86,7 +86,7 @@
   display: flex;
   align-items: center;
   padding-left: 13px;
-  border: 1px solid green;
+  border: 1px solid darkgreen;
 }
 .program-item{
   display: flex;
