@@ -1,18 +1,21 @@
-import '../../public/Assets'
+import Tagpix from '../../public/Assets/Tagpix.svg';
+import Tagpix2 from '../../public/Assets/Tagpix2.svg';
+import Tagpix3 from '../../public/Assets/Tagpix3.svg';
+import Tagpix4 from '../../public/Assets/Tagpix4.svg';
 function ImagePath(){
     let num =  Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     let path;
     if (num === 1) {
-        path = '../../public/Assets/Tagpix.svg';
+        path = {Tagpix};
     } 
     else if (num === 2) {
-        path = '../../public/Assets/Tagpix2.svg';
+        path = {Tagpix2};
     }
     else if (num === 3) {
-        path = '../../public/Assets/Tagpix3.svg';
+        path = {Tagpix3};
     }
     else if (num === 4){
-        path = '../../public/Assets/Tagpix4.svg';
+        path = {Tagpix4};
     }
     return(path);
 }
