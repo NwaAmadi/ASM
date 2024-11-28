@@ -1,7 +1,8 @@
-import Tagpix from '../../public/Assets/Tagpix.svg';
-import Tagpix2 from '../../public/Assets/Tagpix2.svg';
-import Tagpix3 from '../../public/Assets/Tagpix3.svg';
-import Tagpix4 from '../../public/Assets/Tagpix4.svg';
+import Tagpix from '/Assets/Tagpix.svg';
+import Tagpix2 from '/Assets/Tagpix2.svg';
+import Tagpix3 from '/Assets/Tagpix3.svg';
+import Tagpix4 from '/Assets/Tagpix4.svg';
+
 function ImagePath(){
     let num =  Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     let path;
