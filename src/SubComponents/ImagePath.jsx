@@ -1,26 +1,22 @@
-import Tagpix from '../public/Assets/Tagpix.svg';
-import Tagpix2 from '../public/Assets/Tagpix2.svg';
-import Tagpix3 from '../public/Assets/Tagpix3.svg';
-import Tagpix4 from '../public/Assets/Tagpix4.svg';
-
 function ImagePath() {
+    // Random number between 1 and 4 (inclusive)
+    let num = Math.floor(Math.random() * 4) + 1;
+    let path;
   
-  let num = Math.floor(Math.random() * 4) + 1; 
-  let path;
-
+    // Set the path based on the random number
+    if (num === 1) {
+      path = '/Assets/Tagpix.svg'; // Use the public folder path directly
+    } else if (num === 2) {
+      path = '/Assets/Tagpix2.svg';
+    } else if (num === 3) {
+      path = '/Assets/Tagpix3.svg';
+    } else if (num === 4) {
+      path = '/Assets/Tagpix4.svg';
+    }
   
-  if (num === 1) {
-    path = Tagpix;
-  } else if (num === 2) {
-    path = Tagpix2;
-  } else if (num === 3) {
-    path = Tagpix3;
-  } else if (num === 4) {
-    path = Tagpix4;
+    // Return an image element with the selected path
+    return <img src={path} alt="Random Image" />;
   }
-
   
-  return <img src={path} alt="Random Image" />;
-}
-
-export default ImagePath;
+  export default ImagePath;
+  
