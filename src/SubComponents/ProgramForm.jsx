@@ -41,7 +41,7 @@ const ProgramForm = ({ closeForm }) => {
     e.preventDefault(); 
     
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/submit', {
+      const response = await fetch('https://asm-backend-y6oz.onrender.com/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
