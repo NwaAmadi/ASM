@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import '../CSS/programCard.css'
-import Tagpix1 from "/src/Assets2/Tagpix.svg";
-import Tagpix2 from '/src/Assets2/Tagpix2.svg';
-import Tagpix3 from '/src/Assets2/Tagpix3.svg';
-import Tagpix4 from '/src/Assets2/Tagpix4.svg';
+import '../CSS/programCard.css';
+import Tagpix from '../../public/Assets2/Tagpix.svg';
+import Tagpix2 from '../../public/Assets2/Tagpix2.svg';
+import Tagpix3 from '../../public/Assets2/Tagpix3.svg';
+import Tagpix4 from '../../public/Assets2/Tagpix4.svg';
+
 
 function GetPath() {
-  const images = [Tagpix1, Tagpix2, Tagpix3, Tagpix4];
+  const images = [Tagpix, Tagpix2, Tagpix3, Tagpix4];
   const randomIndex = Math.floor(Math.random() * images.length);
   return images[randomIndex];
 }
