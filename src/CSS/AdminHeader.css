@@ -141,4 +141,7 @@
       transition: width 0.3s ease;
       margin-left: 2%;
     }
+    .delete-dropdown{
+        width: 70%;
+    }
 }
