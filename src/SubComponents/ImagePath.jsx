@@ -1,5 +1,5 @@
 function ImagePath() {
-  
+
     let num = Math.floor(Math.random() * 4) + 1;
     let path;
   
