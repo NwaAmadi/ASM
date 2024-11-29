@@ -134,3 +134,11 @@
     width: 100%;
     position: fixed;
 }
+
+@media (max-width: 768px) {
+    .uppersection {
+      width: 100%; /* Adjust width for mobile view */
+      transition: width 0.3s ease;
+      margin-left: 100px;
+    }
+}

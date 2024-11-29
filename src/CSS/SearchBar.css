@@ -52,3 +52,10 @@
     box-shadow: none;
     outline: none;
 }
+@media (max-width: 768px) {
+    .search-bar-container {
+      margin-left: 100px; /* Increase left margin for mobile view */
+      padding: 10px;
+    }
+  }
+  
