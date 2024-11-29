@@ -139,6 +139,6 @@
     .uppersection {
       width: 100%; /* Adjust width for mobile view */
       transition: width 0.3s ease;
-      margin-left: 100px;
+      margin-left: 2%;
     }
 }
