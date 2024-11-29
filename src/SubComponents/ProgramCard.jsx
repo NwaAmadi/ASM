@@ -29,7 +29,7 @@ const ProgramCard = ({ title, dates, duration }) => {
           <div style={styles.banner}>
           <div style={styles.wreathContainer}>
             <img 
-              src={pix} 
+              src='src/assets/Tagpix3.svg'
               alt="Wreath Icon" 
               style={styles.wreathImage} 
             />
