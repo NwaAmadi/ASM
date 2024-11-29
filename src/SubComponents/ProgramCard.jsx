@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import '../CSS/programCard.css'
-/*import ImagePath  from './ImagePath';*/
-import Tagpix1 from "../Assets2/Tagpix.svg"; // Ensure correct extension
-
-import Tagpix2 from '../Assets2/Tagpix2.svg';
-import Tagpix3 from '../Assets2/Tagpix3.svg';
-import Tagpix4 from '../Assets2/Tagpix4.svg';
+import Tagpix1 from "/src/Assets2/Tagpix.svg";
+import Tagpix2 from '/src/Assets2/Tagpix2.svg';
+import Tagpix3 from '/src/Assets2/Tagpix3.svg';
+import Tagpix4 from '/src/Assets2/Tagpix4.svg';
 
 function GetPath() {
   const images = [Tagpix1, Tagpix2, Tagpix3, Tagpix4];
