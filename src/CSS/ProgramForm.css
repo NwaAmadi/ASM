@@ -103,3 +103,12 @@ input::placeholder {
   font-size: 12px; 
 }
 
+@media (max-width: 768px) {
+  .dropdown-content {
+    width: 90%; /* Adjust width for mobile view */
+    transition: width 0.3s ease;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-right: 9px;
+  }
+}
