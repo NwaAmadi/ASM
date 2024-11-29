@@ -1,21 +1,20 @@
 function ImagePath() {
-    // Random number between 1 and 4 (inclusive)
+  
     let num = Math.floor(Math.random() * 4) + 1;
     let path;
   
-    
     if (num === 1) {
-      path = '../assets/Tagpix.svg'; 
+      path = 'src/assets/Tagpix.svg'; 
     } else if (num === 2) {
-      path = '../assets/Tagpix2.svg';
+      path = 'src/assets/Tagpix2.svg';
     } else if (num === 3) {
-      path = '../assets/Tagpix3.svg';
+      path = 'src/assets/Tagpix3.svg';
     } else if (num === 4) {
-      path = '../assets/Tagpix4.svg';
+      path = 'src/assets/Tagpix4.svg';
     }
   
-    return <img src={path} alt="Random Image" />;
+    return path;
   }
   
-  export default ImagePath;
+export default ImagePath;
   
