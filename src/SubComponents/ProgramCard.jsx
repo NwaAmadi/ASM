@@ -1,47 +1,42 @@
 import PropTypes from 'prop-types';
+import '../CSS/programCard.css'
 /*import ImagePath  from './ImagePath';*/
 
 
 function GetPath() {
-  
   let num = Math.floor(Math.random() * 4) + 1;
   let path;
 
   if (num === 1) {
-    path = 'src/assets/Tagpix.svg'; 
+    path = "src/assets/Tagpix.svg";
   } else if (num === 2) {
-    path = 'src/assets/Tagpix2.svg';
+    path = "src/assets/Tagpix2.svg";
   } else if (num === 3) {
-    path = 'src/assets/Tagpix3.svg';
+    path = "src/assets/Tagpix3.svg";
   } else if (num === 4) {
-    path = 'src/assets/Tagpix4.svg';
+    path = "src/assets/Tagpix4.svg";
   }
 
   return path;
 }
 
-
 let pix = GetPath();
 
 const ProgramCard = ({ title, dates, duration }) => {
   return (
-    <div style={styles.bannerContainer}>
-          <div style={styles.banner}>
-          <div style={styles.wreathContainer}>
-            <img 
-              src='src/assets/Tagpix3.svg'
-              alt="Wreath Icon" 
-              style={styles.wreathImage} 
-            />
-          </div>
-          <div style={styles.text}>
-            <h2 style={styles.title}>{title}</h2>
-            <p style={styles.date}>{dates}</p>
-          </div>
-          <div style={styles.duration}>
-            <p>{duration}</p>
-          </div>
+    <div className="banner-container">
+      <div className="bannerAdmin">
+        <div className="wreath-container">
+          <img src={pix} alt="Wreath Icon" className="wreath-image" />
         </div>
+        <div className="text">
+          <h2 className="title">{title}</h2>
+          <p className="date">{dates}</p>
+        </div>
+        <div className="duration">
+          <p>{duration}</p>
+        </div>
+      </div>
     </div>
   );
 };
@@ -55,69 +50,9 @@ ProgramCard.propTypes = {
 
 // Default props in case they are not provided
 ProgramCard.defaultProps = {
-  title: 'Conference 2022',
-  dates: 'June 30, 2022 - July 2, 2022',
-  duration: '3d 12h',
-};
-
-const styles = {
-
-  bannerContainer:{
-  },
-
-  banner: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '5px',
-    //backgroundColor: '#f7f2eb',
-    borderRadius: '8px',
-    fontFamily: "inter",
-    marginTop:'20px',
-    marginRight:'20px',
-    height:'70px',
-    marginLeft:'250px',
-    maxWidth:'100%',
-    
-  },
-  wreathContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '50px',
-    height: '50px',
-    borderRadius: '12%',
-    //backgroundColor: '#e8e2d1', // Light background for program icon
-    marginRight: '10px',
-  },
-  wreathImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
-    flexGrow: 1,
-  },
-  text: {
-    flexGrow: 1,
-  },
-  title: {
-    fontSize: '15px',
-    color: '#3c3c3b',
-   
-  },
-  date: {
-    fontSize: '12px',
-    color: '#A1824A',
-    marginBottom: '10px',
-  },
-  duration: {
-    fontSize: '14px',
-    color: '#3c3c3b',
-    marginRight:'8px',
-    backgroundColor:'#f7f2eb',
-    borderRadius:'15px',
-    paddingLeft:'7px',
-    paddingRight:'7px',
-    
-  },
+  title: "Conference 2022",
+  dates: "June 30, 2022 - July 2, 2022",
+  duration: "3d 12h",
 };
 
 export default ProgramCard;
