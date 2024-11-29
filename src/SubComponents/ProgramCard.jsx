@@ -1,23 +1,16 @@
 import PropTypes from 'prop-types';
 import '../CSS/programCard.css'
 /*import ImagePath  from './ImagePath';*/
+import Tagpix1 from "../Assets2/Tagpix.svg"; // Ensure correct extension
 
+import Tagpix2 from '../Assets2/Tagpix2.svg';
+import Tagpix3 from '../Assets2/Tagpix3.svg';
+import Tagpix4 from '../Assets2/Tagpix4.svg';
 
 function GetPath() {
-  let num = Math.floor(Math.random() * 4) + 1;
-  let path;
-
-  if (num === 1) {
-    path = "src/assets/Tagpix.svg";
-  } else if (num === 2) {
-    path = "src/assets/Tagpix2.svg";
-  } else if (num === 3) {
-    path = "src/assets/Tagpix3.svg";
-  } else if (num === 4) {
-    path = "src/assets/Tagpix4.svg";
-  }
-
-  return path;
+  const images = [Tagpix1, Tagpix2, Tagpix3, Tagpix4];
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex];
 }
 
 let pix = GetPath();
