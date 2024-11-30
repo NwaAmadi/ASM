@@ -101,6 +101,6 @@ input::placeholder {
 @media (max-width: 480px) {
   .dropdown-content{
     margin-left: 7px;
-    margin-right: 5px;
+    margin-right: 8px;
   }
 }
