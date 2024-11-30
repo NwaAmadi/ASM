@@ -231,7 +231,7 @@ position: relative;
     flex-direction: column;
     align-items: flex-start;
     display: flex;
-    padding: 10px;
+    padding: 15px;
   }
 
   .program-details {
