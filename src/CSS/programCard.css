@@ -61,4 +61,10 @@
       padding: 5px;
     }
   }
+  @media (max-width: 480px) {
+    .bannerAdmin{
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
   
