@@ -231,7 +231,7 @@ position: relative;
     flex-direction: column;
     align-items: flex-start;
     display: flex;
-    padding: 20px;
+    padding: 10px;
   }
 
   .program-details {
@@ -265,7 +265,7 @@ position: relative;
   }
 
   .program-item {
-    padding: 10px 5px;
+    padding: 10px 10px;
   }
 
   .program-details h3 {
