@@ -1,8 +1,7 @@
 .content{
     font-weight: 32px;
-    
     color: #333;
-  
+    font-family: 'Lexend', sans-serif;
     justify-content: space-between;
     width: 100%; 
 }

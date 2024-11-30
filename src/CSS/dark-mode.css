@@ -82,3 +82,6 @@ body.dark-mode {
 .month-name h2{
     color: #2e2e2e;
 }
+.uppersection.darkmode h2{
+    color: #F5F0E5;
+}

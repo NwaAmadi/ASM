@@ -5,6 +5,7 @@ import SearchBar from "../SubComponents/SearchBar";
 import ProgramCard from "../SubComponents/ProgramCard";
 import { useEffect, useState } from 'react';
 import Footer from '../SubComponents/Footer'
+import Navbar from "../SubComponents/Navbar";
 function Home() {
     const [programs, setPrograms] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,6 +35,7 @@ function Home() {
     return (
         <div className="Body-container">
             <div className="Home">
+                <Navbar />
                 <AdminHeader />
                 <AdminSidebar />
                 <SearchBar />
