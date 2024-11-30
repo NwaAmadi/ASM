@@ -3,39 +3,23 @@
 }
 /* Style for the dropdown button */
 .create-program-button{
-    /*height: 33px;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    align-self: center;
-    display: flex;
-    background-color: #F5F0E5;
-    border: none;
-    border-radius: 12px;
-    font-size: 10.5px;
-    padding-left: 7px;
-    padding-right: 7px;
-    margin-right: 20px;
-    padding: 16px;*/
-
-    background-color: #F5F0E5; 
-    color: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: none;
-    border-radius: 12px;
-    font-size: 11px;
-    cursor: pointer;
-    height: 33px;
-    align-self: center;
-    justify-content: center;
-    text-align: center;
-    margin-right: 10px;
-    
+  background-color: #F5F0E5; 
+  color: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 11px;
+  cursor: pointer;
+  height: 33px;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 10px; 
 }
 .create-program-button:hover{
-    background-color: #009963;
-    color: white;
+  background-color: #009963;
+  color: white;
 }
   
   /* Style for the dropdown content */

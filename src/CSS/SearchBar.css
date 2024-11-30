@@ -54,7 +54,7 @@
 }
 @media (max-width: 768px) {
     .search-bar-container {
-      margin-left: 0; /* Increase left margin for mobile view */
+      margin-left: 0;
       width: 95%;
       padding: 10px;
     }
