@@ -4,7 +4,8 @@
 }
 /* Custom Scrollbar for Webkit Browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
-    width: 1px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     background-color: #f0f0f0;
     border-radius: 10px;
     padding-top: 10px;

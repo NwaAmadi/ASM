@@ -24,6 +24,7 @@ function App() {
           path="/home" 
           element={isLoggedIn ? <Home /> : <Navigate to="/" />} 
         />
+        <Route path="*" element={<><Navbar /><ConferenceHome /> <Footer /></>} />
       </Routes>
     </Router>
   );

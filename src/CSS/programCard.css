@@ -56,8 +56,9 @@
   /* Media Query for Mobile Devices */
   @media (max-width: 768px) {
     .bannerAdmin {
-      margin-left: 0 auto; /* Increase left margin for mobile view */
-      padding: 10px;
+      margin-left: 0;
+      margin-right: 0; /* Increase left margin for mobile view */
+      padding: 5px;
     }
   }
   
