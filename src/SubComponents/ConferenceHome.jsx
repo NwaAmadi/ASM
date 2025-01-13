@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import '../CSS/ConferenceHome.css';
+import '../CSS/dark-mode.css';
 import PlayButton from '../SubComponents/PlayButton';
 import RedDot from '../SubComponents/RedDot';
 import InfoIcon from '../SubComponents/InfoIcon';
-import '../CSS/dark-mode.css'
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -36,12 +36,10 @@ function getCurrentMonthAndYear() {
 
   return `${month} ${year}`;
 }
+
 function getCurrentDay() {
   return new Date().getDate();
 }
-/*function getCurrentYear() {
-  return new Date().getFullYear();
-}*/
 
 function getCurrentMonth() {
   const date = new Date();
@@ -69,7 +67,25 @@ const ConferenceHome = () => {
           throw new Error('Failed to fetch programs');
         }
         const data = await response.json();
-        setPrograms(data);
+
+        // Add custom logic to determine program statuses
+        const now = new Date();
+        const formattedPrograms = data.map((program) => {
+          const programDate = new Date(program.date);
+          let status = 'Upcoming';
+
+          if (programDate < now) {
+            status = 'Completed';
+          } else if (programDate <= new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000)) {
+            status = 'This Week';
+          } else if (programDate > now) {
+            status = 'Coming Soon';
+          }
+
+          return { ...program, status };
+        });
+
+        setPrograms(formattedPrograms);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -89,87 +105,42 @@ const ConferenceHome = () => {
         <div className="banner">
           <h1>{getCurrentMonthAndYear()}</h1>
           <p>
-            Join us for an enriching program designed for church workers & members, where 
-            inspiration, growth, and collaboration come together 
+            Join us for an enriching program designed for church workers & members, where
+            inspiration, growth, and collaboration come together
             to strengthen our faith and service.
           </p>
         </div>
 
         <div className="schedule-section">
-          <div className='month'>
-            <div className='month-name'>
-              <RedDot color='green'/>
-              <h2 className=''>{currentMonth}</h2>
+          <div className="month">
+            <div className="month-name">
+              <RedDot color="green" />
+              <h2>{currentMonth}</h2>
               <h2>{"'"}{getCurrentDay()}</h2>
             </div>
-            {/*<h2>{getCurrentYear()}</h2>*/}
           </div>
-          {programs.length > 0 ? (
-            programs.map((program) => {
-              const programMonth = new Date(program.date).toLocaleString('default', { month: 'long' });
-              const isCurrentMonth = programMonth === currentMonth;
 
-              let dotColor;
-              switch (program.priority) {
-                case 'Mandatory':
-                  dotColor = 'red';
-                  break;
-                case 'Medium':
-                  dotColor = 'gray';
-                  break;
-                case 'Low':
-                  dotColor = '#009963';
-                  break;
-                default:
-                  dotColor = 'gray';
-                  break;
-              }
-
-              return (
-                <div
-                  className={`program-item ${isCurrentMonth ? '' : 'fade-out'}`}
-                  key={program.id}
-                >
-                  <button className="play-icon"><PlayButton /></button>
-                  <div className="program-details">
-                    <h3>{program.title}</h3>
-                    <p>Hosted by: {program.speakers || 'TBA'}</p>
-                  </div>
-
-                  {/* Info Button with Pop-up */}
-                  <div
-                    className='info-button'
-                    onMouseEnter={() => setHoveredProgram(program)}
-                    onMouseLeave={() => setHoveredProgram(null)}
+          {/* New Upcoming Church Programs Section */}
+          <h2>Upcoming Church Programs</h2>
+          <div className="program-cards-container">
+            {programs.length > 0 ? (
+              programs.map((program) => (
+                <div className="program-card" key={program.id}>
+                  <h3>{program.title}</h3>
+                  <p><strong>Date:</strong> {formatDate(program.date)}</p>
+                  <p><strong>Time:</strong> {program.time || 'TBA'}</p>
+                  <p><strong>Location:</strong> {program.location || 'TBA'}</p>
+                  <span
+                    className={`program-status status-${program.status.toLowerCase().replace(' ', '-')}`}
                   >
-                    <div className='info'>
-                      <InfoIcon />
-                      <span className='info-text'>Info</span>
-                    </div>
-
-                    {hoveredProgram === program && (
-                      <div className="info-popup">
-                        <h4>{program.title}</h4>
-                        <p><strong>Speakers:</strong> {program.speakers || 'TBA'}</p>
-                        <p><strong>Date:</strong> {formatDate(program.date)}</p>
-                        <p><strong>Time:</strong> {program.duration || 'TBA'}</p>
-                        <p><strong>About:</strong> {program.about || 'No additional information.'}</p>
-                        <p><strong>Priority:</strong> {program.priority || 'Not Available'}</p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="priority">
-                    <RedDot color={dotColor} />
-                    <span className="priority-text">{program.priority}</span>
-                  </div>
-                  <span className="program-duration">{formatDate(program.date)}</span>
+                    {program.status}
+                  </span>
                 </div>
-              );
-            })
-          ) : (
-            <p>No programs available.</p>
-          )}
+              ))
+            ) : (
+              <p>No programs available.</p>
+            )}
+          </div>
         </div>
       </div>
     </div>

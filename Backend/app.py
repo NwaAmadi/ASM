@@ -32,7 +32,7 @@ class Program(db.Model):
     end_date = db.Column(db.String(100), nullable=False)
     start_time = db.Column(db.String(100), nullable=False)
     end_time = db.Column(db.String(100), nullable=False)
-    priority = db.Column(db.Integer, nullable=False)
+    location = db.Column(db.String(200), nullable=False)
     about = db.Column(db.Text, nullable=True)
     speakers = db.Column(db.String(200), nullable=True)
 
@@ -48,7 +48,7 @@ def get_programs():
             'duration': f"{program.start_time} - {program.end_time}",
             'speakers': program.speakers,
             'date': program.start_date,
-            'priority':program.priority,
+            'location':program.location,
             'about':program.about
         }
         for program in programs
@@ -64,7 +64,7 @@ def submit_program():
     end_date = data.get('endDate')
     start_time = data.get('startTime')
     end_time = data.get('endTime')
-    priority = data.get('priority')
+    location = data.get('Location')
     about = data.get('about')
     speakers = data.get('speakers')
 
@@ -74,7 +74,7 @@ def submit_program():
         end_date=end_date,
         start_time=start_time,
         end_time=end_time,
-        priority=priority,
+        location=location,
         about=about,
         speakers=speakers
     )

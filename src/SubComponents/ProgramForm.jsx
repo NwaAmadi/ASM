@@ -9,7 +9,7 @@ const ProgramForm = ({ closeForm }) => {
     endDate: '',
     startTime: '',
     endTime: '',
-    priority: '',
+    Location: '',
     about: '',
     speakers: '',
   });
@@ -122,18 +122,15 @@ const ProgramForm = ({ closeForm }) => {
         </div>
 
         <div className="form-group">
-          <label>Priority</label>
-          <select
-            name="priority"
-            value={formData.priority}
+          <label>Location</label>
+          <input
+            type="text"
+            name="location"
+            placeholder="Location"
+            value={formData.title}
             onChange={handleChange}
             required
-          >
-            <option value="">Select Priority</option>
-            <option value="Mandatory">Mandatory</option>
-            <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
-          </select>
+          />
         </div>
 
         <div className="form-group">
