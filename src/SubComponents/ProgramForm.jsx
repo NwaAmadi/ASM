@@ -9,7 +9,7 @@ const ProgramForm = ({ closeForm }) => {
     endDate: '',
     startTime: '',
     endTime: '',
-    Location: '',
+    location: '',
     about: '',
     speakers: '',
   });
@@ -127,7 +127,7 @@ const ProgramForm = ({ closeForm }) => {
             type="text"
             name="location"
             placeholder="Location"
-            value={formData.Location}
+            value={formData.locationocation}
             onChange={handleChange}
             required
           />
