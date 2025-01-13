@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS admin_users (
 conn.commit()
 
 
-username = 'Gospel' 
-password = 'admin123'
+username = 'Gospele' 
+password = 'admin123e'
 
 
 hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
