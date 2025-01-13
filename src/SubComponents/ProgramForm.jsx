@@ -127,7 +127,7 @@ const ProgramForm = ({ closeForm }) => {
             type="text"
             name="location"
             placeholder="Location"
-            value={formData.title}
+            value={formData.Location}
             onChange={handleChange}
             required
           />
