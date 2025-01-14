@@ -62,7 +62,7 @@ const ConferenceHome = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       try {
-        const response = await fetch('https://asm-backend-y6oz.onrender.com/api/programs');
+        const response = await fetch('https://asm-backend-ztv1.onrender.com/api/programs');
         if (!response.ok) {
           throw new Error('Failed to fetch programs');
         }
@@ -121,14 +121,14 @@ const ConferenceHome = () => {
           </div>
 
           {/* New Upcoming Church Programs Section */}
-          <h2>Upcoming Church Programs</h2>
+          <h2 className='UCP'>Upcoming Church Programs</h2>
           <div className="program-cards-container">
             {programs.length > 0 ? (
               programs.map((program) => (
                 <div className="program-card" key={program.id}>
                   <h3>{program.title}</h3>
                   <p><strong>Date:</strong> {formatDate(program.date)}</p>
-                  <p><strong>Time:</strong> {program.time || 'TBA'}</p>
+                  <p><strong>Time:</strong> {program.startDate || 'TBA'}</p>
                   <p><strong>Location:</strong> {program.location || 'TBA'}</p>
                   <span
                     className={`program-status status-${program.status.toLowerCase().replace(' ', '-')}`}

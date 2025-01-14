@@ -15,7 +15,7 @@ function Home() {
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('https://asm-backend-y6oz.onrender.com/api/programs');
+                const response = await fetch('https://asm-backend-ztv1.onrender.com/api/programs');
                 if (!response.ok) {
                     throw new Error('Failed to fetch programs');
                 }

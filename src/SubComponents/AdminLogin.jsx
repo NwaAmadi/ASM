@@ -12,7 +12,7 @@ function AdminLogin({ onLoginSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('https://asm-backend-y6oz.onrender.com/api/login', {
+    const response = await fetch('https://asm-backend-ztv1.onrender.com/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),

@@ -14,7 +14,7 @@ function AdminHeader() {
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const response = await fetch('https://asm-backend-y6oz.onrender.com/api/programs');
+                const response = await fetch('https://asm-backend-ztv1.onrender.com/api/programs');
                 const data = await response.json();
                 setPrograms(data);
             } catch (error) {
@@ -47,7 +47,7 @@ function AdminHeader() {
         const confirmation = window.confirm("Are you sure you want to delete this program?\nWarning! This action cant be undone!!");
         if (confirmation) {
             try {
-                const response = await fetch(`https://asm-backend-y6oz.onrender.com/api/programs/${programId}`, {
+                const response = await fetch(`https://asm-backend-ztv1.onrender.com/api/programs/${programId}`, {
                     method: 'DELETE',
                 });
                 if (response.ok) {

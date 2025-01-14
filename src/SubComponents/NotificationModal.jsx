@@ -11,7 +11,7 @@ const NotificationModal = ({ onClose }) => {
 
   
   useEffect(() => {
-    fetch("https://asm-backend-y6oz.onrender.com/api/programs")
+    fetch("https://asm-backend-ztv1.onrender.com/api/programs")
       .then((res) => res.json())
       .then((data) => setPrograms(data))
       .catch((error) => console.error("Error fetching programs:", error));
@@ -34,7 +34,7 @@ const NotificationModal = ({ onClose }) => {
     formData.append("csvFile", csvFile);
 
     try {
-      const response = await fetch("https://asm-backend-y6oz.onrender.com/api/send-notification", {
+      const response = await fetch("https://asm-backend-ztv1.onrender.com/api/send-notification", {
         method: "POST",
         body: formData,
       });

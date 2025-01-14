@@ -70,7 +70,7 @@
 
 /* Month Section */
 .month {
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
@@ -84,16 +84,16 @@
   align-items: center;
   border: 1px solid #009963;
 }
-
+.UCP{
+  padding: none;
+}
 /* Program Cards for Upcoming Church Programs */
 .program-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 2rem;
-
-  justify-content: left;
-  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px; /* Space between cards */
+  margin: 20px 0;
+  margin-top: 5%;
 }
 
 .program-card {
@@ -102,13 +102,15 @@
   padding: 1rem;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 30%;
+ 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .program-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 4%;
 }
 
 .program-card h3 {
@@ -134,15 +136,18 @@
 }
 
 .status-upcoming {
-  background-color: #4caf50;
+  background-color: #d1fae5;
+  color: #009963;
 }
 
 .status-this-week {
-  background-color: #2196f3;
+  background-color: #dbeafe;
+  color: #467bca;
 }
 
 .status-coming-soon {
-  background-color: #9c27b0;
+  background-color: #ede9fe;
+  color: #8c77d1;
 }
 
 /* Program Items */
@@ -271,3 +276,5 @@
     padding: 8px;
   }
 }
+
+
