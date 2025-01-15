@@ -84,9 +84,10 @@
   align-items: center;
   border: 1px solid #009963;
 }
-.UCP{
+.UCP {
   padding: none;
 }
+
 /* Program Cards for Upcoming Church Programs */
 .program-cards-container {
   display: grid;
@@ -102,9 +103,7 @@
   padding: 1rem;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 }
 
 .program-card:hover {
@@ -123,7 +122,6 @@
   font-size: 0.9rem;
   color: #555;
   margin: 0.5rem 0;
-  
 }
 
 .program-status {
@@ -218,13 +216,19 @@
 }
 
 /* Responsive Styles */
+@media (max-width: 1024px) {
+  .program-cards-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+}
+
 @media (max-width: 768px) {
   .banner h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .banner p {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .program-item {
@@ -234,7 +238,15 @@
   }
 
   .program-card {
-    width: 100%;
+    margin: 0 auto;
+    min-width: 93%;
+  }
+
+  .program-cards-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 10px; /* Space between cards */
+
   }
 
   .priority,
@@ -255,11 +267,11 @@
   }
 
   .banner h1 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .banner p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .program-details h3 {
@@ -275,6 +287,10 @@
     font-size: 0.8rem;
     padding: 8px;
   }
+
+  .program-cards-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 10px; /* Space between cards */
+  }
 }
-
-
