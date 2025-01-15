@@ -128,7 +128,7 @@ const ConferenceHome = () => {
                 <div className="program-card" key={program.id}>
                   <h3>{program.title}</h3>
                   <p><strong>Date:</strong> {formatDate(program.date)}</p>
-                  <p><strong>Time:</strong> {program.startDate || 'TBA'}</p>
+                  <p><strong>Time:</strong> {program.start_time && program.end_time ? `${program.start_time} - ${program.end_time}` : 'TBA'}</p>
                   <p><strong>Location:</strong> {program.location || 'TBA'}</p>
                   <span
                     className={`program-status status-${program.status.toLowerCase().replace(' ', '-')}`}
