@@ -62,13 +62,21 @@ const ConferenceHome = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       try {
-        const response = await fetch('https://asm-backend-ztv1.onrender.com/api/programs');
+        const token = localStorage.getItem('jwtToken'); // Assuming JWT is stored in localStorage
+
+        const response = await fetch('https://asm-backend-ztv1.onrender.com/api/programs', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`, // Add JWT token to Authorization header
+          },
+        });
+
         if (!response.ok) {
           throw new Error('Failed to fetch programs');
         }
+
         const data = await response.json();
 
-        // Add custom logic to determine program statuses
         const now = new Date();
         const formattedPrograms = data.map((program) => {
           const programDate = new Date(program.date);
@@ -120,7 +128,6 @@ const ConferenceHome = () => {
             </div>
           </div>
 
-          {/* New Upcoming Church Programs Section */}
           <h2 className='UCP'>Upcoming Church Programs</h2>
           <div className="program-cards-container">
             {programs.length > 0 ? (
