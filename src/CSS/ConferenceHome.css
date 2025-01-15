@@ -96,6 +96,7 @@
   gap: 9px; /* Space between cards */
   margin: 20px 0;
   margin-top: 5%;
+  padding: 0 15px; /* Add padding on mobile */
 }
 
 .program-card {
@@ -105,6 +106,7 @@
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%; /* Ensure cards do not exceed the screen width */
 }
 
 .program-card:hover {
@@ -220,6 +222,7 @@
 @media (max-width: 1024px) {
   .program-cards-container {
     grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+    padding: 0 10px; /* Adjust padding */
   }
 }
 
@@ -239,14 +242,15 @@
   }
 
   .program-card {
-    margin: 0 auto;
-    min-width: 93%;
+    margin: 0 ;
+    
   }
 
   .program-cards-container {
     display: flex;
     flex-direction: column; /* Stack cards vertically */
     gap: 10px; /* Space between cards */
+    padding: 0 5px; /* Add small padding to prevent overflow */
   }
 
   .priority,
@@ -292,5 +296,6 @@
     display: flex;
     flex-direction: column; /* Stack cards vertically */
     gap: 10px; /* Space between cards */
+    padding: 0 5px; /* Prevent cards from overflowing */
   }
 }
