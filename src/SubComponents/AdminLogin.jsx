@@ -22,20 +22,27 @@ function AdminLogin({ onLoginSuccess }) {
         body: JSON.stringify({ username, password }),
       });
 
+      const data = await response.json();
+      console.log('Response Data:', data); // Log response data to see the structure
+
       if (response.ok) {
-        const data = await response.json();
-        const jwtToken = data.token; // Assuming the token is in the 'token' field
-
-        // Store the JWT token in localStorage (or sessionStorage depending on your needs)
-        localStorage.setItem('jwtToken', jwtToken);
-
-        navigate('/home');
-        onLoginSuccess(); // Update state in Navbar
+        // Adjust this based on the structure of the response
+        const jwtToken = data.token; // Use 'data.token' or modify if needed
+        if (jwtToken) {
+          // Store the JWT token in localStorage if it's available
+          localStorage.setItem('jwtToken', jwtToken);
+          console.log('JWT Token:', jwtToken); // Verify token value
+          navigate('/home');
+          onLoginSuccess(); // Update state in Navbar
+        } else {
+          setError('No token received');
+        }
       } else {
         setError('Invalid username or password');
       }
     } catch (error) {
       setError('Failed to connect to the server. Please try again later.');
+      console.error('Error:', error); // Log any errors from the try block
     } finally {
       setIsLoading(false); // End loading
     }
@@ -55,7 +62,7 @@ function AdminLogin({ onLoginSuccess }) {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder='Username'
+              placeholder="Username"
               required
               className={styles['input-field']}
             />
@@ -64,7 +71,7 @@ function AdminLogin({ onLoginSuccess }) {
             <input
               type="password"
               id="password"
-              placeholder='Password'
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
