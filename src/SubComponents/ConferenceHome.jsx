@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import '../CSS/ConferenceHome.css';
 import '../CSS/dark-mode.css';
-import PlayButton from '../SubComponents/PlayButton';
+{/*import PlayButton from '../SubComponents/PlayButton';*/}
 import RedDot from '../SubComponents/RedDot';
-import InfoIcon from '../SubComponents/InfoIcon';
+{/*import InfoIcon from '../SubComponents/InfoIcon';*/}
 
 function formatDate(dateString) {
   const date = new Date(dateString);

@@ -16,7 +16,6 @@ const ProgramForm = ({ closeForm }) => {
 
   const formRef = useRef(null);
 
-  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (formRef.current && !formRef.current.contains(event.target)) {
@@ -30,21 +29,28 @@ const ProgramForm = ({ closeForm }) => {
     };
   }, [closeForm]);
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault(); 
     
+    // Retrieve the JWT token from local storage
+    const token = localStorage.getItem('jwtToken'); 
+
+    if (!token) {
+      alert('No access token found. Please log in again.');
+      return;
+    }
+
     try {
       const response = await fetch('https://asm-backend-ztv1.onrender.com/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Add the Authorization header
         },
         body: JSON.stringify(formData), 
       });
@@ -52,13 +58,13 @@ const ProgramForm = ({ closeForm }) => {
       const result = await response.json();
   
       if (response.ok) {
-        alert('Form submitted successfully:', result);
+        alert('Form submitted successfully.');
         closeForm(); 
       } else {
-        alert('Submission failed:', result);
+        alert(`Submission failed: ${result.msg || 'Unknown error'}`);
       }
     } catch (error) {
-      alert('Error submitting form:', error);
+      alert(`Error submitting form: ${error.message}`);
     }
   };
 
@@ -161,7 +167,6 @@ const ProgramForm = ({ closeForm }) => {
     </div>
   );
 };
-
 
 ProgramForm.propTypes = {
   closeForm: PropTypes.func.isRequired,
