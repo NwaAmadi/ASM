@@ -48,6 +48,7 @@ function AdminHeader() {
         );
 
         if (confirmation) {
+            console.log("Deleting program with ID:", programId); // Debugging log
             try {
                 const token = localStorage.getItem('jwtToken');
 
@@ -56,7 +57,6 @@ function AdminHeader() {
                     return;
                 }
 
-                
                 const response = await fetch(`https://asm-backend-ztv1.onrender.com/api/programs/${programId}`, {
                     method: 'DELETE',
                     headers: {
@@ -68,10 +68,11 @@ function AdminHeader() {
                 if (response.ok) {
                     alert("Program deleted successfully");
                     setPrograms(programs.filter(program => program.id !== programId));
-                    setIsDeleteOpen(false); // Close the delete dropdown
+                    setIsDeleteOpen(false);
                 } else {
                     const errorResponse = await response.json();
-                    alert(`Failed to delete program: ${errorResponse.message}`);
+                    console.error("Error response from backend:", errorResponse);
+                    alert(`Failed to delete program: ${errorResponse.message || "Unknown error"}`);
                 }
             } catch (error) {
                 console.error("Error deleting program:", error);
@@ -80,6 +81,7 @@ function AdminHeader() {
         }
     };
 
+    // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (deleteDropdownRef.current && !deleteDropdownRef.current.contains(event.target)) {
