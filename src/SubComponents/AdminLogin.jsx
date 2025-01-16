@@ -23,17 +23,17 @@ function AdminLogin({ onLoginSuccess }) {
       });
 
       const data = await response.json();
-      console.log('Response Data:', data); // Log response data to see the structure
+      console.log('Response Data:', data); 
 
       if (response.ok) {
         // Use 'data.access_token' instead of 'data.token'
-        const jwtToken = data.access_token; // Adjusted to 'access_token'
+        const jwtToken = data.access_token; 
         if (jwtToken) {
-          // Store the JWT token in localStorage if it's available
+          
           localStorage.setItem('jwtToken', jwtToken);
-          console.log('JWT Token:', jwtToken); // Verify token value
+          console.log('JWT Token:', jwtToken); 
           navigate('/home');
-          onLoginSuccess(); // Update state in Navbar
+          onLoginSuccess();
         } else {
           setError('No token received');
         }
@@ -42,7 +42,7 @@ function AdminLogin({ onLoginSuccess }) {
       }
     } catch (error) {
       setError('Failed to connect to the server. Please try again later.');
-      console.error('Error:', error); // Log any errors from the try block
+      console.error('Error:', error); 
     } finally {
       setIsLoading(false); // End loading
     }
