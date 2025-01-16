@@ -26,8 +26,8 @@ function AdminLogin({ onLoginSuccess }) {
       console.log('Response Data:', data); // Log response data to see the structure
 
       if (response.ok) {
-        // Adjust this based on the structure of the response
-        const jwtToken = data.token; // Use 'data.token' or modify if needed
+        // Use 'data.access_token' instead of 'data.token'
+        const jwtToken = data.access_token; // Adjusted to 'access_token'
         if (jwtToken) {
           // Store the JWT token in localStorage if it's available
           localStorage.setItem('jwtToken', jwtToken);
