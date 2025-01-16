@@ -2,12 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import '../CSS/AdminHeader.css';
 import ProgramForm from './ProgramForm';
 
-
 function AdminHeader() {
     const [isOpen, setIsOpen] = useState(false);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
     const [programs, setPrograms] = useState([]);
-    const [selectedProgram, setSelectedProgram] = useState('');  // Store the program ID here
+    const [selectedProgram, setSelectedProgram] = useState(''); // Store the program ID here
     const deleteDropdownRef = useRef(null);
 
     // Fetch programs from the backend API
@@ -39,23 +38,40 @@ function AdminHeader() {
 
     // Handle program selection
     const handleProgramSelect = (event) => {
-        setSelectedProgram(event.target.value);  // Set the selected program's ID
+        setSelectedProgram(event.target.value); // Set the selected program's ID
     };
 
     // Confirm and delete the selected program
     const handleDeleteProgram = async (programId) => {
-        const confirmation = window.confirm("Are you sure you want to delete this program?\nWarning! This action cant be undone!!");
+        const confirmation = window.confirm(
+            "Are you sure you want to delete this program?\nWarning! This action can't be undone!!"
+        );
+
         if (confirmation) {
             try {
+                const token = localStorage.getItem('jwtToken');
+
+                if (!token) {
+                    alert("Unauthorized: No token found. Please log in.");
+                    return;
+                }
+
+                
                 const response = await fetch(`https://asm-backend-ztv1.onrender.com/api/programs/${programId}`, {
                     method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
                 });
+
                 if (response.ok) {
                     alert("Program deleted successfully");
-                    setPrograms(programs.filter(program => program.id !== programId)); // Remove from UI
+                    setPrograms(programs.filter(program => program.id !== programId));
                     setIsDeleteOpen(false); // Close the delete dropdown
                 } else {
-                    alert("Failed to delete program");
+                    const errorResponse = await response.json();
+                    alert(`Failed to delete program: ${errorResponse.message}`);
                 }
             } catch (error) {
                 console.error("Error deleting program:", error);
@@ -64,7 +80,6 @@ function AdminHeader() {
         }
     };
 
-    // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (deleteDropdownRef.current && !deleteDropdownRef.current.contains(event.target)) {
@@ -94,7 +109,7 @@ function AdminHeader() {
                         
                         <button
                             className='delete-program-button'
-                            onClick={handleToggleDeleteDropdown}  // Open delete dropdown
+                            onClick={handleToggleDeleteDropdown} // Open delete dropdown
                         >
                             - | Delete Program
                         </button>
