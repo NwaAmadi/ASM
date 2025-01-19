@@ -16,7 +16,6 @@ const ProgramForm = ({ closeForm }) => {
 
   const formRef = useRef(null);
 
-  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (formRef.current && !formRef.current.contains(event.target)) {
@@ -30,49 +29,44 @@ const ProgramForm = ({ closeForm }) => {
     };
   }, [closeForm]);
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    const token = localStorage.getItem('jwtToken');
+    
+    // Retrieve the JWT token from local storage
+    const token = localStorage.getItem('jwtToken'); 
+
     if (!token) {
-      alert('You are not authorized. Please log in again.');
+      alert('No access token found. Please log in again.');
       return;
     }
-  
-    setLoading(true); // Show loading state
+
     try {
       const response = await fetch('https://asm-backend-ztv1.onrender.com/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`, // Ensure authorization header is included
+          Authorization: `Bearer ${token}`, // Add the Authorization header
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), 
       });
   
       const result = await response.json();
   
       if (response.ok) {
-        alert(`Form submitted successfully: ${JSON.stringify(result)}`);
-        closeForm(); // Close the form after submission
+        alert('Form submitted successfully.');
+        closeForm(); 
       } else {
-        console.error('Submission failed:', result);
-        alert(`Submission failed: ${result.message || 'Unknown error'}`);
+        alert(`Submission failed: ${result.msg || 'Unknown error'}`);
       }
     } catch (error) {
-      console.error('Network or server error:', error);
       alert(`Error submitting form: ${error.message}`);
-    } finally {
-      setLoading(false); // Hide loading state
     }
   };
-  
 
   return (
     <div className="dropdown-content" ref={formRef}>
@@ -173,7 +167,6 @@ const ProgramForm = ({ closeForm }) => {
     </div>
   );
 };
-
 
 ProgramForm.propTypes = {
   closeForm: PropTypes.func.isRequired,
