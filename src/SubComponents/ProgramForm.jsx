@@ -39,28 +39,40 @@ const ProgramForm = ({ closeForm }) => {
   
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+      alert('You are not authorized. Please log in again.');
+      return;
+    }
+  
+    setLoading(true); // Show loading state
     try {
       const response = await fetch('https://asm-backend-ztv1.onrender.com/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Ensure authorization header is included
         },
-        body: JSON.stringify(formData), 
+        body: JSON.stringify(formData),
       });
   
       const result = await response.json();
   
       if (response.ok) {
-        alert('Form submitted successfully:', result);
-        closeForm(); 
+        alert(`Form submitted successfully: ${JSON.stringify(result)}`);
+        closeForm(); // Close the form after submission
       } else {
-        alert('Submission failed:', result);
+        console.error('Submission failed:', result);
+        alert(`Submission failed: ${result.message || 'Unknown error'}`);
       }
     } catch (error) {
-      alert('Error submitting form:', error);
+      console.error('Network or server error:', error);
+      alert(`Error submitting form: ${error.message}`);
+    } finally {
+      setLoading(false); // Hide loading state
     }
   };
+  
 
   return (
     <div className="dropdown-content" ref={formRef}>
