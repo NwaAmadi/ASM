@@ -38,7 +38,7 @@ const ProgramForm = ({ closeForm }) => {
     e.preventDefault(); 
     
     // Retrieve the JWT token from local storage
-    const token = localStorage.getItem('access_token'); 
+    const token = localStorage.getItem('jwtToken'); 
 
     if (!token) {
       alert('No access token found. Please log in again.');
