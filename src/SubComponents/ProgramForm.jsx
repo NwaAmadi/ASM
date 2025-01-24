@@ -29,10 +29,16 @@ const ProgramForm = ({ closeForm }) => {
     };
   }, [closeForm]);
 
-  const handleChange = (e) => {
+  /*const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };*/
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value.trim() }); // Trim to remove leading/trailing spaces
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
