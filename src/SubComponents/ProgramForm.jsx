@@ -41,31 +41,37 @@ const ProgramForm = ({ closeForm }) => {
   
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
-    
-    // Retrieve the JWT token from local storage
-    const token = localStorage.getItem('jwtToken'); 
-
+    e.preventDefault();
+  
+    // Basic validation
+    for (const [key, value] of Object.entries(formData)) {
+      if (!value || typeof value !== 'string' || value.trim() === '') {
+        alert(`${key} must be a valid string`);
+        return;
+      }
+    }
+  
+    // Retrieve the JWT token
+    const token = localStorage.getItem('jwtToken');
     if (!token) {
       alert('No access token found. Please log in again.');
       return;
     }
-
+  
     try {
       const response = await fetch('https://asm-backend-ztv1.onrender.com/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`, // Add the Authorization header
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData), 
+        body: JSON.stringify(formData),
       });
   
       const result = await response.json();
-  
       if (response.ok) {
         alert('Form submitted successfully.');
-        closeForm(); 
+        closeForm();
       } else {
         alert(`Submission failed: ${result.msg || 'Unknown error'}`);
       }
@@ -73,6 +79,7 @@ const ProgramForm = ({ closeForm }) => {
       alert(`Error submitting form: ${error.message}`);
     }
   };
+  
 
   return (
     <div className="dropdown-content" ref={formRef}>
