@@ -59,7 +59,7 @@ function App() {
           element={isLoggedIn ? (
             <>
               <Home />
-              <Footer />
+              
             </>
           ) : (
             <Navigate to="/" />
