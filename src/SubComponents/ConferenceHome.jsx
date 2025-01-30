@@ -104,8 +104,31 @@ const ConferenceHome = () => {
     fetchPrograms();
   }, []);
 
-  if (loading) return <p>Loading programs...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return (
+    <div className='loadingdiv'>
+      <p 
+        className='loading' 
+        role="status"
+        aria-live="polite"
+        aria-label="Loading programs"
+      >
+        Loading programs, please wait<span className="loading__dots"></span>
+      </p>
+    </div>
+  );
+  
+  if (error) return (
+    <div className='errordiv'>
+      <p 
+        className='error' 
+        role="alert"
+        aria-live="assertive"
+        aria-label="Error message"
+      >
+        Error: {error} !
+      </p>
+    </div>
+  );
 
   return (
     <div>
