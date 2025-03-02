@@ -3,8 +3,9 @@
   align-items: center;
   justify-content: space-between;
   font-family: lexend;
-
-  background-color: #fff; 
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #fff;
 }
 
 .navbar-logo {
@@ -17,7 +18,7 @@
 .navbar-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #000; 
+  color: #000;
 }
 
 .navbar-signin {
@@ -25,7 +26,7 @@
   gap: 10px;
 }
 
-.signin-btn{
+.signin-btn {
   border: none;
   background: transparent;
 }
@@ -34,4 +35,24 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .navbar {
+    text-align: center; /* Center-align all text */
+    padding: 10px; /* Optional: adds some breathing room */
+  }
+
+  .navbar-title {
+    margin: 10px 0; /* Add some vertical spacing */
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px; /* Space below logo */
+  }
+
+  .navbar-signin {
+    justify-content: center; /* Center the buttons */
+  }
 }
