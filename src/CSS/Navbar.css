@@ -1,46 +1,37 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: lexend;
-    padding: 10px 20px;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Logo styling */
-  .navbar-logo{
-    height: 40px;
-    width: auto;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Title styling */
-  .navbar-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: black;
-    font-family: lexend;
-  }
-
-.navbar-signin .signin-btn{
-  background-color: #fff;
-  border: none;
-  border-radius: 7px;
-
-  align-self: center;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  justify-self: center;
-  justify-items: center;
-  
-}
-.navbar-signin{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: lexend;
+  padding: 10px 20px;
+  background-color: #fff; 
 }
-.Modes{
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000; 
+}
+
+.navbar-signin {
+  display: flex;
+  gap: 10px;
+}
+
+.signin-btn{
+  border: none;
+  background: transparent;
+}
+
+.Modes {
   background: none;
   border: none;
+  cursor: pointer;
 }
