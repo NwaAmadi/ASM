@@ -56,6 +56,6 @@
     justify-content: center; /* Center the buttons */
   }
   .signin-btn{
-    margin-right: 5px;
+    margin-right: 10px;
   }
 }
