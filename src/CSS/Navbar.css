@@ -3,57 +3,63 @@
   align-items: center;
   justify-content: space-between;
   font-family: lexend;
-  margin-right: 10px;
-  margin-left: 10px;
-  background-color: #fff;
+  padding: 10px 20px;
+  color: #fff;
 }
 
-.navbar-logo {
+
+.navbar-logo{
   height: 40px;
   width: auto;
   display: flex;
   align-items: center;
 }
 
+
 .navbar-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #000;
+  color: black;
+  font-family: lexend;
 }
 
-.navbar-signin {
-  display: flex;
-  gap: 10px;
+.navbar-signin .signin-btn{
+background-color: #fff;
+border: none;
+border-radius: 7px;
+
+align-self: center;
+align-items: center;
+align-content: center;
+justify-content: center;
+justify-self: center;
+justify-items: center;
+
+}
+.navbar-signin{
+display: flex;
+}
+.Modes{
+background: none;
+border: none;
 }
 
-.signin-btn {
-  border: none;
-  background: transparent;
-}
-
-.Modes {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Media query for mobile view */
 @media (max-width: 768px) {
   .navbar {
-    text-align: center; /* Center-align all text */
-    padding: 10px; /* Optional: adds some breathing room */
+    text-align: center; 
+    padding: 10px;
   }
 
   .navbar-title {
-    margin: 10px 0; /* Add some vertical spacing */
+    margin: 10px 0;
   }
 
   .navbar-logo {
-    margin-bottom: 10px; /* Space below logo */
+    margin-bottom: 10px; 
   }
 
   .navbar-signin {
-    justify-content: center; /* Center the buttons */
+    justify-content: center; 
   }
   .signin-btn{
     margin-right: 10px;
