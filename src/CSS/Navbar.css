@@ -55,4 +55,7 @@
   .navbar-signin {
     justify-content: center; /* Center the buttons */
   }
+  .signin-btn{
+    margin-right: 5px;
+  }
 }
